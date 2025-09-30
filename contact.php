@@ -33,8 +33,8 @@
   <meta itemprop="name" content="Gaan Developments">
   <meta itemprop="url" content="https://example.com/">
   <meta itemprop="logo" content="https://example.com/uploads/logo-60x56.svg">
-  <link itemprop="sameAs" href="https://vk.com/example">
-  <link itemprop="sameAs" href="https://t.me/example">
+  <link itemprop="sameAs" href="https://vk.com/Gaan_Dmitry">
+  <link itemprop="sameAs" href="https://t.me/Gaan_Dmitry">
   <link itemprop="sameAs" href="https://github.com/Gaan_Dmitry">
 
   <div itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
