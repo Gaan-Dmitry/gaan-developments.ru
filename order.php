@@ -144,7 +144,7 @@
   </div>
 
   <section class="card shadow-sm p-4 mb-4">
-  <h2 class="mb-3">Почему стоит заказать сайт у нас</h2>
+  <h2 class="mb-3 text-center">Почему стоит заказать сайт у нас</h2>
   <ul>
     <li>Индивидуальный дизайн под задачи бизнеса</li>
     <li>SEO-оптимизация и адаптивная верстка</li>
@@ -154,7 +154,7 @@
 </section>
 
 <section class="card shadow-sm p-4 mb-4">
-  <h2 class="mb-3">Часто задаваемые вопросы</h2>
+  <h2 class="mb-3 text-center">Часто задаваемые вопросы</h2>
   <div class="accordion" id="faqAccordion">
     <div class="accordion-item">
       <h2 class="accordion-header">
