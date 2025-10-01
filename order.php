@@ -9,39 +9,180 @@
   <meta name="description" content="Закажите разработку сайта, лендинга или интернет-магазина у Gaan Developments. Подберём дизайн, контент и поддержку для вашего проекта.">
   <meta name="keywords" content="заказать сайт, веб-разработка, лендинг, интернет-магазин, корпоративный сайт, портфолио, SaaS">
   <meta name="author" content="Gaan Developments">
-  <link rel="canonical" href="https://example.com/order.php">
+  <link rel="canonical" href="https://gaan-developments.ru/order.php">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Заказать сайт — Gaan Developments">
   <meta property="og:description" content="Создаём сайты под ключ: лендинги, интернет-магазины, корпоративные сайты. Закажите свой проект онлайн.">
-  <meta property="og:image" content="https://example.com/uploads/logo-60x56.svg">
+  <meta property="og:image" content="https://gaan-developments.ru/uploads/logo-60x56.svg">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://example.com/order.php">
+  <meta property="og:url" content="https://gaan-developments.ru/order.php">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="Gaan Developments">
 
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Заказать сайт — Gaan Developments">
+  <meta name="twitter:description" content="Создаём сайты под ключ: лендинги, интернет-магазины, корпоративные сайты. Закажите свой проект онлайн.">
+  <meta name="twitter:image" content="https://gaan-developments.ru/uploads/logo-60x56.svg">
+
   <!-- Favicon & CSS -->
-  <link rel="shortcut icon" href="/uploads/logo-60x56.svg" type="image/x-icon">
+  <link rel="icon" href="https://gaan-developments.ru/uploads/logo-60x56.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
   <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<!-- JSON-LD Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Gaan Developments",
+  "url": "https://gaan-developments.ru/",
+  "logo": "https://gaan-developments.ru/uploads/logo-60x56.svg",
+  "sameAs": [
+    "https://vk.com/Gaan_Dmitry",
+    "https://t.me/Gaan_Dmitry",
+    "https://github.com/Gaan-Dmitry"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "gaandima55@yandex.ru",
+    "telephone": "+7 329 329-40-61",
+    "availableLanguage": ["Russian"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "RU"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Дмитрий"
+  },
+  "foundingDate": "2023",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Услуги веб-разработки",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Разработка лендингов"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Интернет-магазины"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Корпоративные сайты"
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько стоит сайт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Стоимость зависит от типа сайта и объема работ. Лендинги начинаются от 30 000 ₽, интернет-магазины — от 60 000 ₽."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает разработка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Средний срок создания сайта — от 2 до 6 недель, в зависимости от сложности проекта и наличия контента."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли заказать SEO вместе с сайтом?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, у нас можно заказать как техническую поддержку, так и SEO-продвижение сайта."
+      }
+    }
+  ]
+}
+</script>
+
 <main class="container" itemscope itemtype="https://schema.org/Organization">
   <?php require_once __DIR__ . '/header.php'; ?>
 
+  <!-- Schema.org -->
   <meta itemprop="name" content="Gaan Developments">
-  <meta itemprop="url" content="https://example.com/">
-  <meta itemprop="logo" content="https://example.com/uploads/logo-60x56.svg">
+  <meta itemprop="url" content="https://gaan-developments.ru/">
+  <meta itemprop="logo" content="https://gaan-developments.ru/uploads/logo-60x56.svg">
   <link itemprop="sameAs" href="https://vk.com/Gaan_Dmitry">
   <link itemprop="sameAs" href="https://t.me/Gaan_Dmitry">
-  <link itemprop="sameAs" href="https://github.com/Gaan_Dmitry">
+  <link itemprop="sameAs" href="https://github.com/Gaan-Dmitry">
 
   <div itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
     <meta itemprop="contactType" content="customer support">
-    <meta itemprop="email" content="info@example.com">
-    <meta itemprop="telephone" content="+7 999 999-99-99">
+    <meta itemprop="email" content="gaandima55@yandex.ru">
+    <meta itemprop="telephone" content="+7 329 329-40-61">
   </div>
+
+  <section class="card shadow-sm p-4 mb-4">
+  <h2 class="mb-3">Почему стоит заказать сайт у нас</h2>
+  <ul>
+    <li>Индивидуальный дизайн под задачи бизнеса</li>
+    <li>SEO-оптимизация и адаптивная верстка</li>
+    <li>Поддержка после запуска</li>
+    <li>Опыт работы с разными нишами</li>
+  </ul>
+</section>
+
+<section class="card shadow-sm p-4 mb-4">
+  <h2 class="mb-3">Часто задаваемые вопросы</h2>
+  <div class="accordion" id="faqAccordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+          Сколько стоит сайт?
+        </button>
+      </h2>
+      <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Стоимость зависит от типа сайта: лендинг от 30 000 ₽, интернет-магазин от 60 000 ₽.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+          Сколько времени занимает разработка?
+        </button>
+      </h2>
+      <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Средний срок — от 2 до 6 недель, зависит от сложности и наличия контента.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Заголовок -->
   <section class="card shadow-sm p-4 mb-4" itemprop="description">

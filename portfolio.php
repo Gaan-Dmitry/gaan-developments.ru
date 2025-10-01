@@ -59,8 +59,8 @@ if ($stmt = $conn->prepare($sql)) {
 
   <!-- Заголовок -->
   <section class="card shadow-sm p-4 mb-4" itemprop="description">
-    <h1 class="mb-3" itemprop="name">Наше портфолио</h1>
-    <p class="lead">Сайты, которые мы создали для бизнеса, брендов и личных проектов...</p>
+    <h1 class="mb-3 text-center" itemprop="name">Наше портфолио</h1>
+    <p class="lead text-center">Сайты, которые мы создали для бизнеса, брендов и личных проектов...</p>
   </section>
 
   <!-- Содержание портфолио -->

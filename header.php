@@ -28,7 +28,7 @@
             <a class="nav-link" href="portfolio.php">Портфолио</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="contact.php">Заказать</a>
+            <a class="nav-link active" href="order.php">Заказать</a>
           </li>
         </ul>
       </div>
