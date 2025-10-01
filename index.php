@@ -32,8 +32,8 @@ require 'config.php';
 
   <!-- Favicon & CSS -->
   <link rel="icon" href="/uploads/logo-60x56.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
   <!-- Bootstrap JS -->
   <script src="/assets/js/bootstrap.bundle.min.js" defer></script>
