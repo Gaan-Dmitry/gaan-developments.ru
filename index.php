@@ -17,13 +17,13 @@ require 'config.php';
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Gaan Developments — разработка сайтов и интернет-магазинов">
-  <meta name="twitter:description" content="Создаём сайты, которые приносят результат. Портфолио, услуги, поддержка и оптимизация.">
+  <meta name="twitter:description" content="Создаём сайты, которые приносят результат. Услуги, поддержка и оптимизация.">
   <meta name="twitter:image" content="https://gaan-developments.ru/uploads/gaan-developments.png">
 
 
   <!-- Open Graph -->
   <meta property="og:title" content="Gaan Developments — разработка сайтов и интернет-магазинов">
-  <meta property="og:description" content="Создаём сайты, которые приносят результат. Портфолио, услуги, поддержка и оптимизация.">
+  <meta property="og:description" content="Создаём сайты, которые приносят результат. Услуги, поддержка и оптимизация.">
   <meta property="og:image" content="https://gaan-developments.ru/uploads/gaan-developments.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gaan-developments.ru/">
@@ -114,48 +114,6 @@ require 'config.php';
   </div>
 </section>
 
-
-  <!-- Портфолио -->
-  <section class="card shadow-sm p-4 mb-4" id="portfolio">
-    <h2 class="mb-4 text-center">Наши работы</h2>
-    <div class="row g-4">
-      <?php
-      $sql = "SELECT * FROM works ORDER BY id DESC LIMIT 6";
-      if ($stmt = $conn->prepare($sql)) {
-          $stmt->execute();
-          $res = $stmt->get_result();
-          if ($res->num_rows > 0) {
-              while ($row = $res->fetch_assoc()) {
-                  $title = htmlspecialchars($row['title']);
-                  $desc = htmlspecialchars(mb_strimwidth($row['description'], 0, 140, '...'));
-                  $image = htmlspecialchars($row['image']);
-                  $id = (int)$row['id'];
-                  ?>
-                  <div class="col-12 col-sm-6 col-md-4">
-                    <article class="card h-100 shadow-sm portfolio-card" itemscope itemtype="https://schema.org/CreativeWork">
-                      <a href="portfolio.php?id=<?= $id ?>" class="text-decoration-none text-dark" itemprop="url">
-                        <div class="card-img-wrapper">
-                          <img src="uploads/<?= $image ?>" 
-                               class="card-img-top" 
-                               alt="<?= $title ?>" 
-                               loading="lazy" 
-                               itemprop="image">
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                          <h3 class="card-title h5" itemprop="headline"><?= $title ?></h3>
-                          <p class="card-text small mt-auto" itemprop="text"><?= $desc ?></p>
-                        </div>
-                      </a>
-                    </article>
-                  </div>
-                  <?php
-              }
-          }
-          $stmt->close();
-      }
-      ?>
-    </div>
-  </section>
 <section class="card shadow-sm p-4 mb-4 text-center">
   <h2>Готовы обсудить ваш проект?</h2>
   <p>Оставьте заявку — мы свяжемся с вами в течение дня.</p>

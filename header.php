@@ -25,9 +25,6 @@
             <a class="nav-link" aria-current="page" href="index.php">Главная</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="portfolio.php">Портфолио</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link active" href="order.php">Заказать</a>
           </li>
         </ul>
