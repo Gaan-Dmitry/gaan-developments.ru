@@ -1,0 +1,37 @@
+# Включаем mod_rewrite
+RewriteEngine On
+
+# Основной домен (www → без www)
+RewriteCond %{HTTP_HOST} ^www\.gaan-developments\.ru [NC]
+RewriteRule ^(.*)$ https://gaan-developments.ru/$1 [R=301,L]
+
+# HTTPS принудительно
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Защита файлов конфигурации
+<FilesMatch "^(config\.php|\.htaccess|\.env)$">
+  Require all denied
+</FilesMatch>
+
+# Защита от листинга директорий
+Options -Indexes
+
+# Кэширование статических файлов
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/pdf "access plus 1 month"
+</IfModule>
+
+# Сжатие файлов (gzip)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+</IfModule>

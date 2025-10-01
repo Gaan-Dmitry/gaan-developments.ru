@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /assets/
+Disallow: /config.php
+Disallow: /private/
+Disallow: /portfolio.php
+Allow: /
+
+Sitemap: https://gaan-developments.ru/sitemap.xml

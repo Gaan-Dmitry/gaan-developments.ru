@@ -3,12 +3,12 @@
     <!-- Контакты -->
     <div class="row">
       <div class="col-md-6 mb-2 mb-md-0">
-        <p class="mb-1">&copy; <?= date('Y') ?> <span itemprop="name">Дмитрий</span>. Все права защищены.</p>
+        <p class="mb-1">&copy; <?= date('Y') ?> <span itemprop="name">Gaan Developments</span>. Все права защищены.</p>
         <meta itemprop="url" content="https://example.com">
         <div itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
           <meta itemprop="contactType" content="customer support">
-          <a href="mailto:info@example.com" itemprop="email">info@example.com</a> | <br class="d-b d-md-none">
-          <a href="tel:+79990000000" itemprop="telephone">+7 (999) 000-00-00</a>
+          <a href="mailto:gaandima55@yandex.ru" itemprop="email">gaandima55@yandex.ru</a> | <br class="d-b d-md-none">
+          <a href="tel:+79043294061" itemprop="telephone">+7 (904) 329-40-61</a>
         </div>
       </div>
       <div class="col-md-6 d-flex align-items-center flex-row-reverse">
