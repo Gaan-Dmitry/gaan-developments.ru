@@ -20,9 +20,9 @@
 <!-- Модалка согласия на Cookies -->
 <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content d-flex align-items-center">
+    <div class="modal-content text-center">
       <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title text-center w-100" id="cookieModalLabel">Мы используем cookies</h5>
+        <h5 class="modal-title text-center" id="cookieModalLabel">Мы используем cookies</h5>
       </div>
       <div class="modal-body text-center">
         <p>
