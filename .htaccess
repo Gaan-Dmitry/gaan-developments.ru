@@ -1,14 +1,6 @@
 # Включаем mod_rewrite
 RewriteEngine On
 
-# Основной домен (www → без www)
-RewriteCond %{HTTP_HOST} ^www\.gaan-developments\.ru [NC]
-RewriteRule ^(.*)$ https://gaan-developments.ru/$1 [R=301,L]
-
-# HTTPS принудительно
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-
 # Защита файлов конфигурации
 <FilesMatch "^(config\.php|\.htaccess|\.env)$">
   Require all denied
