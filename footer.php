@@ -15,12 +15,12 @@
         <a href="privacy.php" class="text-muted">Политика конфиденциальности</a>
       </div>
     </div>
-  </div>
+  </div> 
 
 <!-- Модалка согласия на Cookies -->
 <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered d-flex align-items-center">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content d-flex align-items-center">
       <div class="modal-header bg-primary text-white">
         <h5 class="modal-title text-center" id="cookieModalLabel">Мы используем cookies</h5>
       </div>
