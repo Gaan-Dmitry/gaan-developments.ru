@@ -22,8 +22,8 @@ require 'config.php';
 
   <!-- Favicon & CSS -->
   <link rel="shortcut icon" href="/uploads/logo-60x56.svg" type="image/x-icon">
-  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
   <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>

@@ -22,10 +22,10 @@
       <div class="navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.php">Главная</a>
+            <a class="nav-link" aria-current="page" href="/">Главная</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="order.php">Заказать</a>
+            <a class="nav-link active" href="/order.php">Заказать</a>
           </li>
         </ul>
       </div>
