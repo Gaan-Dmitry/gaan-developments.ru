@@ -27,7 +27,7 @@ require 'config.php';
   <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<main class="container my-4" itemscope itemtype="https://schema.org/PrivacyPolicy">
+<main class="container" itemscope itemtype="https://schema.org/PrivacyPolicy">
   <?php require_once __DIR__ . '/header.php'; ?>
 
   <section class="card shadow-sm p-4 mb-4">
