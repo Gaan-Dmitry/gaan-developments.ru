@@ -117,7 +117,7 @@ require 'config.php';
 <section class="card shadow-sm p-4 mb-4 text-center">
   <h2>Готовы обсудить ваш проект?</h2>
   <p>Оставьте заявку — мы свяжемся с вами в течение дня.</p>
-  <a href="order.php" class="btn btn-lg btn-primary">Заказать сайт</a>
+  <a href="order.php" class="btn btn-primary">Заказать сайт</a>
 </section>
 
   <?php require_once __DIR__ . '/footer.php'; ?>
