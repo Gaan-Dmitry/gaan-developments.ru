@@ -3,7 +3,7 @@
   <div class="accordion" id="faqAccordion">
     <div class="accordion-item">
       <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
           Сколько стоит сайт?
         </button>
       </h2>
