@@ -1,8 +1,8 @@
 <header class="card shadow-sm px-3 mb-3" itemscope itemtype="https://schema.org/Organization">
   <nav class="navbar navbar-expand-lg navbar-light" aria-label="Главная навигация">
-    <div class="container d-flex justify-content-center d-lg-block">
+    <div class="container d-flex justify-content-sm-center ">
 <!-- Логотип и название -->
-<a class="navbar-brand d-flex flex-column flex-md-row align-items-center" href="index.php" itemprop="url">
+<a class="navbar-brand d-flex flex-column flex-md-row align-items-center m-0 justify-content-sm-center" href="index.php" itemprop="url">
   <img src="uploads/logo-60x56.svg" 
        alt="Логотип Gaan Developments" 
        class="me-0 me-md-2 mb-2 mb-md-0" 
