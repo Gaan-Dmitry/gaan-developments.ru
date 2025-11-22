@@ -11,6 +11,12 @@ function showStep(index) {
   steps.forEach((step,i)=>step.classList.toggle('active', i===index));
   progressBar.style.width = `${((index+1)/steps.length)*100}%`;
   stepLabel.textContent = `Шаг ${index+1} из ${steps.length}`;
+  
+  // Обновляем активную вкладку в прогресс-баре
+  document.querySelectorAll('.step-indicator').forEach((indicator, i) => {
+    indicator.classList.toggle('active', i <= index);
+    indicator.classList.toggle('completed', i < index);
+  });
 }
 showStep(currentStep);
 
@@ -66,6 +72,11 @@ btnSubmit.addEventListener('click', async()=>{
   if (!validateStep(currentStep)) return;
 
   const formData = new FormData(form);
+  
+  // Показываем индикатор загрузки
+  btnSubmit.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Отправка...';
+  btnSubmit.disabled = true;
+  
   try {
     const res = await fetch('/save_request.php',{method:'POST', body:formData});
     const data = await res.json();
@@ -118,5 +129,9 @@ btnSubmit.addEventListener('click', async()=>{
     result.className='text-danger';
     result.textContent='Ошибка соединения';
     console.error(e);
+  } finally {
+    // Восстанавливаем кнопку
+    btnSubmit.innerHTML = 'Отправить заявку';
+    btnSubmit.disabled = false;
   }
 });

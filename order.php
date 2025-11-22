@@ -161,6 +161,30 @@
           <div class="small text-muted mt-2" id="formStepLabel">Шаг 1 из 5</div>
         </div>
 
+        <!-- Индикаторы шагов -->
+        <div class="d-flex justify-content-between mb-4">
+          <div class="step-indicator text-center">
+            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-1" style="width:30px;height:30px;">1</div>
+            <small>Тип сайта</small>
+          </div>
+          <div class="step-indicator text-center">
+            <div class="rounded-circle bg-light border d-flex align-items-center justify-content-center mx-auto mb-1" style="width:30px;height:30px;">2</div>
+            <small>Дизайн</small>
+          </div>
+          <div class="step-indicator text-center">
+            <div class="rounded-circle bg-light border d-flex align-items-center justify-content-center mx-auto mb-1" style="width:30px;height:30px;">3</div>
+            <small>Контент</small>
+          </div>
+          <div class="step-indicator text-center">
+            <div class="rounded-circle bg-light border d-flex align-items-center justify-content-center mx-auto mb-1" style="width:30px;height:30px;">4</div>
+            <small>Бюджет</small>
+          </div>
+          <div class="step-indicator text-center">
+            <div class="rounded-circle bg-light border d-flex align-items-center justify-content-center mx-auto mb-1" style="width:30px;height:30px;">5</div>
+            <small>Контакты</small>
+          </div>
+        </div>
+
         <!-- Шаги формы -->
         <div class="form-step active" data-step="1">
           <label for="site_type" class="form-label">Тип сайта *</label>

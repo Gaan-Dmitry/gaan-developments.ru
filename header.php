@@ -25,6 +25,9 @@
             <a class="nav-link" aria-current="page" href="/">Главная</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/services.php">Услуги</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link active" href="/order.php">Заказать</a>
           </li>
         </ul>
