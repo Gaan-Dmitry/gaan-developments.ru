@@ -37,6 +37,34 @@ require 'config.php';
 
   <!-- Bootstrap JS -->
   <script src="/assets/js/bootstrap.bundle.min.js" defer></script>
+  
+  <!-- Portfolio Filter JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Фильтрация портфолио
+      const filterButtons = document.querySelectorAll('[data-filter]');
+      const portfolioItems = document.querySelectorAll('.portfolio-item');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Удалить активный класс у всех кнопок
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          // Добавить активный класс к нажатой кнопке
+          this.classList.add('active');
+          
+          const filter = this.getAttribute('data-filter');
+          
+          portfolioItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
 </head>
 <body>
 <main class="container" itemscope itemtype="https://schema.org/Organization">
@@ -109,6 +137,100 @@ require 'config.php';
       <div class="p-3 border rounded text-center h-100">
         <h3 class="h5">Корпоративные сайты</h3>
         <p>Сайты для компаний, которые укрепляют бренд и доверие.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Отзывы клиентов -->
+<section class="card shadow-sm p-4 mb-4" id="testimonials">
+  <h2 class="mb-4 text-center">Отзывы клиентов</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="p-3 border rounded text-center h-100">
+        <div class="mb-3">
+          <div class="rating">
+            <span class="text-warning">★</span>
+            <span class="text-warning">★</span>
+            <span class="text-warning">★</span>
+            <span class="text-warning">★</span>
+            <span class="text-warning">★</span>
+          </div>
+        </div>
+        <p class="mb-2">"Отличная работа! Сайт получился именно таким, каким мы его задумали. Рекомендую!"</p>
+        <p class="mb-0 fw-bold">— Иван Петров</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="p-3 border rounded text-center h-100">
+        <div class="mb-3">
+          <div class="rating">
+            <span class="text-warning">★</span>
+            <span class="text-warning">★</span>
+            <span class="text-warning">★</span>
+            <span class="text-warning">★</span>
+            <span class="text-warning">★</span>
+          </div>
+        </div>
+        <p class="mb-2">"Профессиональный подход, соблюдение сроков, качественный результат. Спасибо команде!"</p>
+        <p class="mb-0 fw-bold">— Мария Сидорова</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="p-3 border rounded text-center h-100">
+        <div class="mb-3">
+          <div class="rating">
+            <span class="text-warning">★</span>
+            <span class="text-warning">★</span>
+            <span class="text-warning">★</span>
+            <span class="text-warning">★</span>
+            <span class="text-warning">★</span>
+          </div>
+        </div>
+        <p class="mb-2">"Работаем с ними уже второй проект. Всё на высшем уровне!"</p>
+        <p class="mb-0 fw-bold">— Алексей Козлов</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Галерея работ -->
+<section class="card shadow-sm p-4 mb-4" id="portfolio">
+  <h2 class="mb-4 text-center">Наши работы</h2>
+  <div class="row mb-3">
+    <div class="col-12 text-center">
+      <button class="btn btn-outline-primary btn-sm mx-1 active" data-filter="all">Все</button>
+      <button class="btn btn-outline-primary btn-sm mx-1" data-filter="landing">Лендинги</button>
+      <button class="btn btn-outline-primary btn-sm mx-1" data-filter="shop">Интернет-магазины</button>
+      <button class="btn btn-outline-primary btn-sm mx-1" data-filter="corporate">Корпоративные</button>
+    </div>
+  </div>
+  <div class="row g-4" id="portfolio-grid">
+    <div class="col-md-4 portfolio-item" data-category="landing">
+      <div class="card h-100">
+        <img src="https://placehold.co/300x200/e6f3ff/000?text=Лендинг+1" alt="Пример лендинга" class="card-img-top" loading="lazy">
+        <div class="card-body">
+          <h5 class="card-title">Продажи+ Лендинг</h5>
+          <p class="card-text small">Одностраничный сайт для привлечения клиентов</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 portfolio-item" data-category="shop">
+      <div class="card h-100">
+        <img src="https://placehold.co/300x200/f0e6ff/000?text=Интернет-магазин" class="card-img-top" alt="Пример интернет-магазина" loading="lazy">
+        <div class="card-body">
+          <h5 class="card-title">Магазин Техники</h5>
+          <p class="card-text small">Интернет-магазин электроники с корзиной</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 portfolio-item" data-category="corporate">
+      <div class="card h-100">
+        <img src="https://placehold.co/300x200/e6ffe6/000?text=Корпоративный" class="card-img-top" alt="Пример корпоративного сайта" loading="lazy">
+        <div class="card-body">
+          <h5 class="card-title">Корпоративный сайт</h5>
+          <p class="card-text small">Официальный сайт компании с CRM интеграцией</p>
+        </div>
       </div>
     </div>
   </div>

@@ -62,3 +62,49 @@ button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-
 
 .progress { height: 6px; border-radius: 6px; overflow: hidden; background: #e9ecef; }
 .progress-bar { background: linear-gradient(90deg,#0d6efd,#6610f2); }
+
+/* Step indicators */
+.step-indicator {
+  position: relative;
+  flex: 1;
+  text-align: center;
+}
+.step-indicator:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  right: -50%;
+  height: 2px;
+  background: #dee2e6;
+  z-index: 1;
+}
+.step-indicator.active .rounded-circle {
+  background: #0d6efd !important;
+  color: white !important;
+}
+.step-indicator.completed .rounded-circle {
+  background: #28a745 !important;
+  color: white !important;
+}
+.step-indicator.completed::after {
+  background: #28a745;
+}
+
+/* Rating stars */
+.rating {
+  display: inline-block;
+}
+.rating span {
+  font-size: 1.2em;
+}
+
+/* Portfolio filter buttons */
+.btn-filter {
+  transition: all 0.3s;
+}
+.btn-filter.active {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: white;
+}
