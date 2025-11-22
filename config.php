@@ -5,9 +5,9 @@ error_reporting(E_ALL);
 
 // config.php - database connection and basic settings
 $DB_HOST = 'localhost';
-$DB_NAME = 'u3015620_gaan-developments';
-$DB_USER = 'u3015620_gaan-dmitry';
-$DB_PASS = '9SKxwP9sX835nhj'; // <-- set your MySQL root password here
+$DB_NAME = 'u3299512_gaan-developments';
+$DB_USER = 'u3299512_gaan-dmitry';
+$DB_PASS = 'yZU-gQW-cET-qVK'; // <-- set your MySQL root password here
 
 // Base URL (set if your site is in a subfolder, e.g. '/project_root')
 $BASE_URL = '/'; 
