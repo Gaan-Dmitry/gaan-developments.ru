@@ -88,7 +88,7 @@ require 'config.php';
     <h2 class="mb-4">Разработка лендингов</h2>
     <div class="row g-4">
       <div class="col-md-6">
-        <img src="https://placehold.co/500x300/e6f3ff/000?text=Лендинг" alt="Разработка лендингов" class="img-fluid rounded" loading="lazy">
+        <img src="uploads/1.png" alt="Разработка лендингов" class="img-fluid rounded" loading="lazy">
       </div>
       <div class="col-md-6">
         <h3>Что входит:</h3>
@@ -101,7 +101,7 @@ require 'config.php';
           <li>SEO-оптимизация</li>
         </ul>
         <p class="mt-3"><strong>Сроки:</strong> от 5 до 10 рабочих дней</p>
-        <p><strong>Цена:</strong> от 25 000 ₽</p>
+        <p><strong>Цена:</strong> от 15 000 ₽</p>
         <a href="order.php" class="btn btn-primary mt-2">Заказать лендинг</a>
       </div>
     </div>
@@ -122,11 +122,11 @@ require 'config.php';
           <li>Система скидок и акций</li>
         </ul>
         <p class="mt-3"><strong>Сроки:</strong> от 2 до 6 недель</p>
-        <p><strong>Цена:</strong> от 60 000 ₽</p>
+        <p><strong>Цена:</strong> от 70 000 ₽</p>
         <a href="order.php" class="btn btn-primary mt-2">Заказать интернет-магазин</a>
       </div>
       <div class="col-md-6">
-        <img src="https://placehold.co/500x300/f0e6ff/000?text=Интернет-магазин" alt="Разработка интернет-магазинов" class="img-fluid rounded" loading="lazy">
+        <img src="uploads/2.png" alt="Разработка интернет-магазинов" class="img-fluid rounded" loading="lazy">
       </div>
     </div>
   </section>
@@ -135,7 +135,7 @@ require 'config.php';
     <h2 class="mb-4">Корпоративные сайты</h2>
     <div class="row g-4">
       <div class="col-md-6">
-        <img src="https://placehold.co/500x300/e6ffe6/000?text=Корпоративный" alt="Разработка корпоративных сайтов" class="img-fluid rounded" loading="lazy">
+        <img src="uploads/5.png" alt="Разработка корпоративных сайтов" class="img-fluid rounded" loading="lazy">
       </div>
       <div class="col-md-6">
         <h3>Что входит:</h3>
@@ -149,7 +149,7 @@ require 'config.php';
           <li>SEO-оптимизация</li>
         </ul>
         <p class="mt-3"><strong>Сроки:</strong> от 3 до 8 недель</p>
-        <p><strong>Цена:</strong> от 50 000 ₽</p>
+        <p><strong>Цена:</strong> от 35 000 ₽</p>
         <a href="order.php" class="btn btn-primary mt-2">Заказать корпоративный сайт</a>
       </div>
     </div>
