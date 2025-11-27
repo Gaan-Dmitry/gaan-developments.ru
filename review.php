@@ -3,15 +3,43 @@ require_once __DIR__ . '/config.php';
 $message = '';
 $err = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim($_POST['name'] ?? '');
-    $text = trim($_POST['text'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    if ($name==='' || $text==='') $err = 'Пожалуйста, заполните имя и текст отзыва.';
-    // Здесь можно добавить otpravku v Google Sheets/API/YandexForm или сохранение в БД
-    if (!$err) {
-        $message = 'Спасибо! Ваш отзыв отправлен на модерацию.';
-        // todo: добавить отправку в Google Sheets/API по необходимости
-    }
+  $name = trim($_POST['name'] ?? '');
+  $text = trim($_POST['text'] ?? '');
+  $email = trim($_POST['email'] ?? '');
+
+  if ($name === '' || $text === '') {
+      $err = 'Пожалуйста, заполните имя и текст отзыва.';
+  } else {
+      // URL Google Apps Script
+      $scriptUrl = 'https://script.google.com/macros/s/AKfycbwNmu6whvAFbCk0qo8DulA3Bgm_siBOMjvghDfzjH9F02YLOIoGBw6yTzM0PRfkl28S/exec';
+
+      // Подготовка данных для отправки
+      $postData = http_build_query([
+          'name' => $name,
+          'text' => $text,
+          'email' => $email,
+      ]);
+
+      // Отправка POST-запроса
+      $ch = curl_init($scriptUrl);
+      curl_setopt($ch, CURLOPT_POST, true);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, [
+          'Content-Type: application/x-www-form-urlencoded',
+      ]);
+
+      $response = curl_exec($ch);
+      $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+      curl_close($ch);
+
+      if ($httpCode === 200 && strpos($response, '"success":true') !== false) {
+          $message = 'Спасибо! Ваш отзыв отправлен на модерацию.';
+      } else {
+          $err = 'Ошибка отправки отзыва. Попробуйте позже.';
+          error_log("Google Apps Script error: " . $response); // логируем ошибку
+      }
+  }
 }
 ?>
 <!doctype html>
