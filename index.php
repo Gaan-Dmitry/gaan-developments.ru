@@ -179,8 +179,11 @@ require 'config.php';
         <div class="card-img-wrapper"><img src="/uploads/<?= htmlspecialchars($w['image']) ?>" alt="<?= htmlspecialchars($w['title']) ?>" class="card-img-top" loading="lazy"></div>
         <div class="card-body">
           <div class="small text-muted mb-1">Категория: <?= htmlspecialchars($w['category']) ?></div>
-          <h5 class="card-title"><?= htmlspecialchars($w['title']) ?></h5>
-          <p class="card-text small"><?= nl2br(htmlspecialchars($w['description'])) ?></p>
+          <h5 class="card-title static-text"><?= htmlspecialchars($w['title']) ?></h5>
+          <p class="card-text small static-text-desc"><?= nl2br(htmlspecialchars($w['description'])) ?></p>
+          <?php if (!empty($w['webarchive'])): ?>
+          <div class="mt-2"><a href="<?= htmlspecialchars($w['webarchive']) ?>" target="_blank" class="btn btn-link p-0" rel="noopener">WebArchive</a></div>
+          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -237,5 +240,32 @@ fetch('https://script.google.com/macros/s/AKfycbwNmu6whvAFbCk0qo8DulA3Bgm_siBOMj
 
   <?php require_once __DIR__ . '/footer.php'; ?>
 </main>
+<script>
+// Галерея: pop-up для увеличения изображений
+(function(){
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.card-img-wrapper img').forEach(function(img){
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function(){
+        var src = this.src;
+        var overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = 0;
+        overlay.style.left = 0;
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.background = 'rgba(20,20,20,0.86)';
+        overlay.style.zIndex = 11000;
+        overlay.style.display = 'flex';
+        overlay.style.alignItems = 'center';
+        overlay.style.justifyContent = 'center';
+        overlay.innerHTML = '<img src="'+src+'" style="max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.31);cursor:zoom-out;">';
+        overlay.addEventListener('click',function(){document.body.removeChild(overlay)});
+        document.body.appendChild(overlay);
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>

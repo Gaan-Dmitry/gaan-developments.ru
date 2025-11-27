@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = trim($_POST['title'] ?? '');
     $description = trim($_POST['description'] ?? '');
     $category = trim($_POST['category'] ?? '');
+    $webarchive = trim($_POST['webarchive'] ?? '');
     if ($title === '') $err = 'Название обязательно.';
     if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) $err = 'Нужен файл превью.';
     if ($err === '') {
@@ -13,9 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $target = __DIR__ . '/../uploads/' . $fname;
         if (!move_uploaded_file($_FILES['image']['tmp_name'], $target)) $err = 'Не удалось сохранить файл.';
         else {
-            $sql = 'INSERT INTO works (title,description,category,image) VALUES (?,?,?,?)';
+            $sql = 'INSERT INTO works (title,description,category,image,webarchive) VALUES (?,?,?,?,?)';
             if ($st = $conn->prepare($sql)) {
-                $st->bind_param('ssss',$title,$description,$category,$fname);
+                $st->bind_param('sssss',$title,$description,$category,$fname,$webarchive);
                 if ($st->execute()) {
                     header('Location: index.php');
                     exit;
@@ -40,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <label>Название<input class="input" type="text" name="title" required></label>
       <label>Описание<textarea class="input" name="description" rows="6"></textarea></label>
       <label>Категория<input class="input" type="text" name="category"></label>
+      <label>Ссылка на WebArchive (необязательно)<input class="input" type="text" name="webarchive"></label>
       <label>Превью<input type="file" name="image" accept="image/*" required></label>
       <button type="submit">Добавить</button>
     </form>

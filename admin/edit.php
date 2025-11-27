@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = trim($_POST['title'] ?? '');
     $description = trim($_POST['description'] ?? '');
     $category = trim($_POST['category'] ?? '');
+    $webarchive = trim($_POST['webarchive'] ?? '');
     $img = $work['image'];
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $fname = time() . '_' . preg_replace('/[^a-z0-9._-]/i','_',basename($_FILES['image']['name']));
@@ -31,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     if ($err === '') {
-        if ($st = $conn->prepare('UPDATE works SET title=?,description=?,category=?,image=? WHERE id=?')) {
-            $st->bind_param('ssssi',$title,$description,$category,$img,$id);
+        if ($st = $conn->prepare('UPDATE works SET title=?,description=?,category=?,image=?,webarchive=? WHERE id=?')) {
+            $st->bind_param('sssssi',$title,$description,$category,$img,$webarchive,$id);
             if ($st->execute()) {
                 header('Location: index.php');
                 exit;
@@ -56,6 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <label>Название<input class="input" type="text" name="title" value="<?= htmlspecialchars($work['title']) ?>" required></label>
       <label>Описание<textarea class="input" name="description" rows="6"><?= htmlspecialchars($work['description']) ?></textarea></label>
       <label>Категория<input class="input" type="text" name="category" value="<?= htmlspecialchars($work['category']) ?>"></label>
+      <label>WebArchive
+        <input class="input" type="text" name="webarchive" value="<?= htmlspecialchars($work['webarchive'] ?? '') ?>">
+      </label>
       <p>Текущее превью:</p>
       <img src="../uploads/<?= htmlspecialchars($work['image']) ?>" alt="" style="max-width:220px;display:block;margin-bottom:8px">
       <label>Загрузить новое изображение<input type="file" name="image" accept="image/*"></label>

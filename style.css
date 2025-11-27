@@ -274,3 +274,23 @@ button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-
   0%   { left:-60%;} 
   100% { left:100%; }
 }
+
+.static-text {
+  font-size: 18px;
+  line-height: 1.18;
+  font-weight: 600;
+  color:#69061f;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.static-text-desc {
+  font-size: 15px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  min-height: 65px;
+}
