@@ -114,7 +114,7 @@ if (file_exists($reviews_cache) && time() - filemtime($reviews_cache) < 3600) {
   <!-- О компании -->
   <section class="card shadow-sm p-4 mb-4" id="about">
     <div class="card-body text-center">
-      <h1 class="card-title mb-3" itemprop="name">Веб-студия Gaan Developments</h1>
+      <h1 class="mb-3" itemprop="name">Веб-студия Gaan Developments</h1>
       <p class="card-text" itemprop="description">
         Мы создаём сайты, которые не только красивы, но и приносят результат. 
         В нашей работе мы совмещаем современный дизайн, удобство для пользователей и техническую надёжность.
