@@ -1,5 +1,37 @@
 <?php
 require 'config.php';
+
+// Кеширование отзывов на 1 час
+$reviews_cache = __DIR__ . '/cache/reviews.json';
+$reviews = [];
+
+if (file_exists($reviews_cache) && time() - filemtime($reviews_cache) < 3600) {
+    $reviews = json_decode(file_get_contents($reviews_cache), true);
+} else {
+    // Создаем папку cache если не существует
+    if (!is_dir(__DIR__ . '/cache')) {
+        mkdir(__DIR__ . '/cache', 0755, true);
+    }
+    
+    // Функция для получения отзывов из Google Sheets
+    function fetch_reviews_from_google() {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://script.google.com/macros/s/AKfycbwNmu6whvAFbCk0qo8DulA3Bgm_siBOMjvghDfzjH9F02YLOIoGBw6yTzM0PRfkl28S/exec');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        
+        return $response ? json_decode($response, true) : [];
+    }
+    
+    $reviews = fetch_reviews_from_google();
+    if ($reviews) {
+        file_put_contents($reviews_cache, json_encode($reviews));
+    }
+}
 ?>
 <!doctype html>
 <html lang="ru">
@@ -20,7 +52,6 @@ require 'config.php';
   <meta name="twitter:description" content="Создаём сайты, которые приносят результат. Услуги, поддержка и оптимизация.">
   <meta name="twitter:image" content="https://gaan-developments.ru/uploads/gaan-developments.png">
 
-
   <!-- Open Graph -->
   <meta property="og:title" content="Gaan Developments — разработка сайтов и интернет-магазинов">
   <meta property="og:description" content="Создаём сайты, которые приносят результат. Услуги, поддержка и оптимизация.">
@@ -32,43 +63,8 @@ require 'config.php';
 
   <!-- Favicon & CSS -->
   <link rel="icon" href="/uploads/logo-60x56.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/assets/css/style.min.css">
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-
-  <!-- Bootstrap JS -->
-  <script src="/assets/js/bootstrap.bundle.min.js" defer></script>
-  
-  <!-- Portfolio Filter JS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Фильтрация портфолио
-      const filterButtons = document.querySelectorAll('[data-filter]');
-      const portfolioItems = document.querySelectorAll('.portfolio-item');
-      
-      filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          // Удалить активный класс у всех кнопок
-          filterButtons.forEach(btn => btn.classList.remove('active'));
-          // Добавить активный класс к нажатой кнопке
-          this.classList.add('active');
-          
-          const filter = this.getAttribute('data-filter');
-          
-          portfolioItems.forEach(item => {
-            if (filter === 'all' || item.getAttribute('data-category') === filter) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        });
-      });
-    });
-  </script>
-</head>
-<body>
-<main class="container" itemscope itemtype="https://schema.org/Organization">
-  <?php require_once __DIR__ . '/header.php'; ?>
 
   <!-- Schema.org microdata -->
   <meta itemprop="name" content="Gaan Developments">
@@ -110,6 +106,10 @@ require 'config.php';
   }
 }
 </script>
+</head>
+<body>
+<main class="container" itemscope itemtype="https://schema.org/Organization">
+  <?php require_once __DIR__ . '/header.php'; ?>
 
   <!-- О компании -->
   <section class="card shadow-sm p-4 mb-4" id="about">
@@ -146,7 +146,6 @@ require 'config.php';
   </div>
 </section>
 
-
 <!-- Галерея работ -->
 <section class="card shadow-sm p-4 mb-4" id="portfolio">
   <h2 class="mb-4 text-center">Наши работы</h2>
@@ -168,15 +167,32 @@ require 'config.php';
         while ($r = $res->fetch_assoc()) $works[] = $r;
         $st->close();
       }
+      
+      // Маппинг категорий на английские ключи
+      $categoryMapping = [
+        'Лендинг' => 'landing',
+        'Интернет-магазин' => 'shop',
+        'Корпоративный сайт' => 'corporate',
+        'Обучающая платформа' => 'corporate'
+      ];
+      
       if (count($works)===0): ?>
         <div class="col-12 text-center text-muted">Портфолио пока пусто</div>
       <?php else:
         foreach ($works as $w):
-          $cat = strtolower(preg_replace('/[^\w]+/','', $w['category']));
+          // Получаем английский ключ категории
+          $cat_key = $categoryMapping[$w['category']] ?? '';
     ?>
-    <div class="col-md-4 portfolio-item" data-category="<?= htmlspecialchars($cat) ?>">
+    <div class="col-md-4 portfolio-item" data-category="<?= htmlspecialchars($cat_key) ?>">
       <div class="card h-100 portfolio-card">
-        <div class="card-img-wrapper"><img src="/uploads/<?= htmlspecialchars($w['image']) ?>" alt="<?= htmlspecialchars($w['title']) ?>" class="card-img-top" loading="lazy"></div>
+        <div class="card-img-wrapper">
+          <img 
+            data-src="/uploads/<?= htmlspecialchars($w['image']) ?>" 
+            src="/assets/placeholder.jpg" 
+            alt="<?= htmlspecialchars($w['title']) ?>" 
+            class="card-img-top lazy"
+            loading="lazy">
+        </div>
         <div class="card-body">
           <div class="small text-muted mb-1">Категория: <?= htmlspecialchars($w['category']) ?></div>
           <h5 class="card-title static-text"><?= htmlspecialchars($w['title']) ?></h5>
@@ -195,42 +211,28 @@ require 'config.php';
 <section class="card shadow-sm p-4 mb-4" id="reviews-block">
   <h2 class="mb-4 text-center">Отзывы клиентов</h2>
   <div class="row g-3" id="reviews-container">
-    <div class="col-md-6 col-lg-4"><div class="review-card review-skeleton card h-100"></div></div>
-    <div class="col-md-6 col-lg-4"><div class="review-card review-skeleton card h-100"></div></div>
-    <div class="col-md-6 col-lg-4 d-none d-md-block"><div class="review-card review-skeleton card h-100"></div></div>
+    <?php if (empty($reviews)): ?>
+      <div class="col-md-6 col-lg-4"><div class="review-card review-skeleton card h-100"></div></div>
+      <div class="col-md-6 col-lg-4"><div class="review-card review-skeleton card h-100"></div></div>
+      <div class="col-md-6 col-lg-4 d-none d-md-block"><div class="review-card review-skeleton card h-100"></div></div>
+    <?php else: ?>
+      <?php foreach ($reviews as $r): ?>
+        <div class="col-md-6 col-lg-4">
+          <div class="review-card card h-100 shadow-sm">
+            <div class="card-body">
+              <div class="fw-bold mb-1 text-center"><?= htmlspecialchars($r['name']) ?></div>
+              <div class="text-muted small mb-2 text-center"><?= htmlspecialchars($r['date/time'] ?? '') ?></div>
+              <div class="review-text"><?= nl2br(htmlspecialchars($r['text'] ?? '')) ?></div>
+            </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
   </div>
   <div class="text-center mt-3">
     <a href="review.php" class="btn btn-lg btn-outline-primary">Оставить отзыв</a>
   </div>
 </section>
-<script>
-fetch('https://script.google.com/macros/s/AKfycbwNmu6whvAFbCk0qo8DulA3Bgm_siBOMjvghDfzjH9F02YLOIoGBw6yTzM0PRfkl28S/exec')
-  .then(res => res.json())
-  .then(reviews => {
-    const container = document.getElementById('reviews-container');
-    container.innerHTML = '';
-    if(!reviews.length){
-      container.innerHTML='<div class="col-12 text-muted">Пока нет отзывов</div>'; return;
-    }
-    reviews.forEach(r => {
-      const col = document.createElement('div');
-      col.className = 'col-md-6 col-lg-4';
-      col.innerHTML = `
-        <div class="review-card card h-100 shadow-sm ">
-          <div class="card-body">
-            <div class="fw-bold mb-1 text-center">${r.name}</div>
-            <div class="text-muted small mb-2 text-center">${r['date/time'] || ''}</div>
-            <div class="review-text">${r.text?.replace(/\n/g,'<br>') || ''}</div>
-          </div>
-        </div>`;
-      container.appendChild(col);
-    });
-  })
-  .catch(()=>{
-    const c=document.getElementById('reviews-container');
-    c.innerHTML='<div class="col-12 text-muted">Не удалось загрузить отзывы</div>';
-  });
-</script>
 
 <section class="card shadow-sm p-4 mb-4 text-center d-flex align-items-center">
   <h2>Готовы обсудить ваш проект?</h2>
@@ -240,32 +242,76 @@ fetch('https://script.google.com/macros/s/AKfycbwNmu6whvAFbCk0qo8DulA3Bgm_siBOMj
 
   <?php require_once __DIR__ . '/footer.php'; ?>
 </main>
+
+<!-- Все скрипты вынесены в конец -->
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
 <script>
-// Галерея: pop-up для увеличения изображений
-(function(){
-  document.addEventListener('DOMContentLoaded',function(){
-    document.querySelectorAll('.card-img-wrapper img').forEach(function(img){
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', function(){
-        var src = this.src;
-        var overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.top = 0;
-        overlay.style.left = 0;
-        overlay.style.width = '100vw';
-        overlay.style.height = '100vh';
-        overlay.style.background = 'rgba(20,20,20,0.86)';
-        overlay.style.zIndex = 11000;
-        overlay.style.display = 'flex';
-        overlay.style.alignItems = 'center';
-        overlay.style.justifyContent = 'center';
-        overlay.innerHTML = '<img src="'+src+'" style="max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.31);cursor:zoom-out;">';
-        overlay.addEventListener('click',function(){document.body.removeChild(overlay)});
-        document.body.appendChild(overlay);
+// Ленивая загрузка изображений
+document.addEventListener('DOMContentLoaded', function() {
+  // Инициализация ленивой загрузки
+  const lazyLoadImages = function() {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.remove('lazy');
+          imageObserver.unobserve(img);
+        }
+      });
+    });
+
+    document.querySelectorAll('img.lazy').forEach(img => {
+      imageObserver.observe(img);
+    });
+  };
+
+  // Фильтрация портфолио
+  const filterButtons = document.querySelectorAll('[data-filter]');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      const filter = this.getAttribute('data-filter');
+      
+      portfolioItems.forEach(item => {
+        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
       });
     });
   });
-})();
+
+  // Галерея: pop-up для увеличения изображений
+  document.querySelectorAll('.card-img-wrapper img').forEach(function(img) {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function() {
+      var src = this.src;
+      var overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = 0;
+      overlay.style.left = 0;
+      overlay.style.width = '100vw';
+      overlay.style.height = '100vh';
+      overlay.style.background = 'rgba(20,20,20,0.86)';
+      overlay.style.zIndex = 11000;
+      overlay.style.display = 'flex';
+      overlay.style.alignItems = 'center';
+      overlay.style.justifyContent = 'center';
+      overlay.innerHTML = '<img src="'+src+'" style="max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.31);cursor:zoom-out;">';
+      overlay.addEventListener('click',function(){document.body.removeChild(overlay)});
+      document.body.appendChild(overlay);
+    });
+  });
+
+  // Запуск ленивой загрузки
+  lazyLoadImages();
+});
 </script>
 </body>
 </html>
