@@ -172,15 +172,21 @@
           <label for="site_type" class="form-label">Тип сайта *</label>
           <select id="site_type" name="site_type" class="form-select" required>
             <option value="">— Выберите —</option>
-            <option value="landing">Лендинг</option>
-            <option value="shop">Интернет-магазин</option>
-            <option value="corporate">Корпоративный сайт</option>
-            <option value="blog">Блог</option>
-            <option value="portfolio">Портфолио</option>
-            <option value="saas">Веб-инструмент</option>
-            <option value="edu">Обучающая платформа</option>
+            <option value="landing">📰 Лендинг страница (от 15 000 ₽)</option>
+            <option value="shop">🛍 Интернет магазин (от 70 000 ₽)</option>
+            <option value="blog">📝 Блог (от 25 000 ₽)</option>
+            <option value="forum">💬 Форум (от 45 000 ₽)</option>
+            <option value="corporate">🏠 Корпоративный сайт (от 35 000 ₽)</option>
+            <option value="tool">🛠 Веб инструмент (от 60 000 ₽)</option>
+            <option value="portfolio">🎨 Портфолио (от 28 000 ₽)</option>
+            <option value="learning">🎓 Обучающая платформа (от 90 000 ₽)</option>
             <option value="other">Другое</option>
           </select>
+          <div class="mt-2">
+            <small class="text-muted" id="site_type_description">
+              Выберите тип сайта, чтобы увидеть описание
+            </small>
+          </div>
           <div class="invalid-feedback"></div>
           <div class="d-flex justify-content-end mt-3">
             <button type="button" class="btn btn-primary next-btn">Далее</button>
@@ -309,6 +315,35 @@
 
     <?php require_once __DIR__ . '/footer.php'; ?>
 </main>
+
+<script>
+// Описания для типов сайтов
+const siteTypeDescriptions = {
+  'landing': '📰 Лендинг страница - от 15 000 ₽. Идеальное решение для быстрого старта и привлечения клиентов!',
+  'shop': '🛍 Интернет магазин - от 70 000 ₽. Полный функционал для вашего онлайн-бизнеса 24/7!',
+  'blog': '📝 Блог - от 25 000 ₽. Рассказывайте свою историю и делитесь экспертными знаниями!',
+  'forum': '💬 Форум - от 45 000 ₽. Создайте живое сообщество вокруг вашего бренда!',
+  'corporate': '🏠 Корпоративный сайт - от 35 000 ₽. Официальное лицо вашей компании в цифровом мире!',
+  'tool': '🛠 Веб инструмент - от 60 000 ₽. Практичные решения для автоматизации ваших задач!',
+  'portfolio': '🎨 Портфолио - от 28 000 ₽. Ваша визитная карточка для привлечения лучших клиентов!',
+  'learning': '🎓 Обучающая платформа - от 90 000 ₽. Современное образование в удобном цифровом формате!',
+  'other': 'Другой тип сайта. Опишите вашу задачу в поле "Кратко опишите задачу"'
+};
+
+// Показ описания при выборе типа сайта
+document.getElementById('site_type').addEventListener('change', function() {
+  const descriptionEl = document.getElementById('site_type_description');
+  const selectedValue = this.value;
+  
+  if (selectedValue && siteTypeDescriptions[selectedValue]) {
+    descriptionEl.textContent = siteTypeDescriptions[selectedValue];
+    descriptionEl.className = 'text-success';
+  } else {
+    descriptionEl.textContent = 'Выберите тип сайта, чтобы увидеть описание';
+    descriptionEl.className = 'text-muted';
+  }
+});
+</script>
 
 <script src="/assets/js/form.js"></script>
 </body>
