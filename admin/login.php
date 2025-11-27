@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Вход в админку</title><link rel="stylesheet" href="../style.css"></head>
 <body>
   <div class="container" style="max-width:420px;margin:60px auto">
-    <h2>Войти в админку</h2>
+    <h2 style="text-align: center">Войти в админку</h2>
     <?php if ($err): ?><div class="feedback"><?= htmlspecialchars($err) ?></div><?php endif; ?>
     <form action="login.php" method="post" class="card">
       <label>Логин<input class="input" type="text" name="username" required></label>
