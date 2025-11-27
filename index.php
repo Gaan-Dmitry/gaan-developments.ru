@@ -142,57 +142,6 @@ require 'config.php';
   </div>
 </section>
 
-<!-- Отзывы клиентов -->
-<section class="card shadow-sm p-4 mb-4" id="testimonials">
-  <h2 class="mb-4 text-center">Отзывы клиентов</h2>
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="p-3 border rounded text-center h-100">
-        <div class="mb-3">
-          <div class="rating">
-            <span class="text-warning">★</span>
-            <span class="text-warning">★</span>
-            <span class="text-warning">★</span>
-            <span class="text-warning">★</span>
-            <span class="text-warning">★</span>
-          </div>
-        </div>
-        <p class="mb-2">"Отличная работа! Сайт получился именно таким, каким мы его задумали. Рекомендую!"</p>
-        <p class="mb-0 fw-bold">— Иван Петров</p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="p-3 border rounded text-center h-100">
-        <div class="mb-3">
-          <div class="rating">
-            <span class="text-warning">★</span>
-            <span class="text-warning">★</span>
-            <span class="text-warning">★</span>
-            <span class="text-warning">★</span>
-            <span class="text-warning">★</span>
-          </div>
-        </div>
-        <p class="mb-2">"Профессиональный подход, соблюдение сроков, качественный результат. Спасибо команде!"</p>
-        <p class="mb-0 fw-bold">— Мария Сидорова</p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="p-3 border rounded text-center h-100">
-        <div class="mb-3">
-          <div class="rating">
-            <span class="text-warning">★</span>
-            <span class="text-warning">★</span>
-            <span class="text-warning">★</span>
-            <span class="text-warning">★</span>
-            <span class="text-warning">★</span>
-          </div>
-        </div>
-        <p class="mb-2">"Работаем с ними уже второй проект. Всё на высшем уровне!"</p>
-        <p class="mb-0 fw-bold">— Алексей Козлов</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- Галерея работ -->
 <section class="card shadow-sm p-4 mb-4" id="portfolio">
@@ -234,6 +183,42 @@ require 'config.php';
     <?php endforeach; endif; ?>
   </div>
 </section>
+
+<!-- Отзывы клиентов -->
+<section class="card shadow-sm p-4 mb-4" id="reviews-block">
+  <h2 class="mb-4 text-center">Отзывы клиентов</h2>
+  <div class="row g-3" id="reviews-container"><!-- JS reviews --></div>
+  <div class="text-center mt-3">
+    <a href="review.php" class="btn btn-lg btn-outline-primary">Оставить отзыв</a>
+  </div>
+</section>
+<script>
+fetch('https://script.google.com/macros/s/AKfycbwNmu6whvAFbCk0qo8DulA3Bgm_siBOMjvghDfzjH9F02YLOIoGBw6yTzM0PRfkl28S/exec')
+  .then(res => res.json())
+  .then(reviews => {
+    const container = document.getElementById('reviews-container');
+    if(!reviews.length){
+      container.innerHTML='<div class="col-12 text-muted">Пока нет отзывов</div>'; return;
+    }
+    reviews.forEach(r => {
+      const col = document.createElement('div');
+      col.className = 'col-md-6 col-lg-4';
+      col.innerHTML = `
+        <div class="review-card card h-100 shadow-sm ">
+          <div class="card-body">
+            <div class="fw-bold mb-1">${r.Имя}</div>
+            <div class="text-muted small mb-2">${r.Дата || ''}</div>
+            <div class="review-text">${r.Отзыв?.replace(/\n/g,'<br>') || ''}</div>
+          </div>
+        </div>`;
+      container.appendChild(col);
+    });
+  })
+  .catch(()=>{
+    const c=document.getElementById('reviews-container');
+    c.innerHTML='<div class="col-12 text-muted">Не удалось загрузить отзывы</div>';
+  });
+</script>
 
 <section class="card shadow-sm p-4 mb-4 text-center d-flex align-items-center">
   <h2>Готовы обсудить ваш проект?</h2>
