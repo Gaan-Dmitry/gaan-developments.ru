@@ -85,7 +85,7 @@ require 'config.php';
     <meta itemprop="telephone" content="+7 904 329-40-61">
   </div>
 
-<script type="application/ld+json">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -102,10 +102,14 @@ require 'config.php';
     "contactType": "customer support",
     "email": "gaandima55@yandex.ru",
     "telephone": "+7 904 329-40-61"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "8"
   }
 }
 </script>
-
 
   <!-- О компании -->
   <section class="card shadow-sm p-4 mb-4" id="about">
