@@ -216,11 +216,11 @@ fetch('https://script.google.com/macros/s/AKfycbwNmu6whvAFbCk0qo8DulA3Bgm_siBOMj
       const col = document.createElement('div');
       col.className = 'col-md-6 col-lg-4';
       col.innerHTML = `
-        <div class="review-card card h-100 shadow-sm">
+        <div class="review-card card h-100 shadow-sm ">
           <div class="card-body">
-            <div class="fw-bold mb-1">${r.Имя}</div>
-            <div class="text-muted small mb-2">${r.Дата || ''}</div>
-            <div class="review-text">${r.Отзыв?.replace(/\n/g,'<br>') || ''}</div>
+            <div class="fw-bold mb-1">${r.name}</div>
+            <div class="text-muted small mb-2">${r['date/time'] || ''}</div>
+            <div class="review-text">${r.text?.replace(/\n/g,'<br>') || ''}</div>
           </div>
         </div>`;
       container.appendChild(col);
