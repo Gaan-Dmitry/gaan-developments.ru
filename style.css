@@ -245,3 +245,32 @@ button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-
 .review-card:hover { box-shadow:0 4px 16px rgba(105,6,31,0.08); transform:scale(1.018) translateY(-4px); }
 .review-text {font-size:1.05em; color:#333; margin-bottom:0.4em; word-break:break-word;}
 @media(max-width:650px){ .review-card{min-height:110px;} }
+
+.review-skeleton {
+  min-height: 148px;
+  background: linear-gradient(110deg,#f0f0f2 85%,#e4e4ea 100%);
+  position:relative;
+  overflow:hidden;
+  border:1.4px solid #f3f3f6;
+  box-shadow:none;
+  margin-bottom: 2px;
+}
+.review-skeleton::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -58%; right: 0; height: 100%;
+  width: 60%;
+  background: linear-gradient(100deg,transparent 0%,#f4f4f8 50%,transparent 100%);
+  animation: skeleton-move 1.18s infinite linear;
+}
+.review-skeleton .card-body { padding: 23px; }
+.review-skeleton .card-body > div {
+  display: block; background: #ececec; border-radius: 4.7px; margin-bottom: 15px;
+}
+.review-skeleton .fw-bold, .review-skeleton .review-text {width:38%; height: 16px;}
+.review-skeleton .text-muted {width:32%; height: 12px;}
+.review-skeleton .review-text {width:81%; height: 21px; margin-bottom: 0;}
+@keyframes skeleton-move {
+  0%   { left:-60%;} 
+  100% { left:100%; }
+}

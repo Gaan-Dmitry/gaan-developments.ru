@@ -191,7 +191,11 @@ require 'config.php';
 <!-- Отзывы клиентов -->
 <section class="card shadow-sm p-4 mb-4" id="reviews-block">
   <h2 class="mb-4 text-center">Отзывы клиентов</h2>
-  <div class="row g-3" id="reviews-container"><!-- JS reviews --></div>
+  <div class="row g-3" id="reviews-container">
+    <div class="col-md-6 col-lg-4"><div class="review-card review-skeleton card h-100"></div></div>
+    <div class="col-md-6 col-lg-4"><div class="review-card review-skeleton card h-100"></div></div>
+    <div class="col-md-6 col-lg-4 d-none d-md-block"><div class="review-card review-skeleton card h-100"></div></div>
+  </div>
   <div class="text-center mt-3">
     <a href="review.php" class="btn btn-lg btn-outline-primary">Оставить отзыв</a>
   </div>
@@ -201,6 +205,7 @@ fetch('https://script.google.com/macros/s/AKfycbwNmu6whvAFbCk0qo8DulA3Bgm_siBOMj
   .then(res => res.json())
   .then(reviews => {
     const container = document.getElementById('reviews-container');
+    container.innerHTML = '';
     if(!reviews.length){
       container.innerHTML='<div class="col-12 text-muted">Пока нет отзывов</div>'; return;
     }
@@ -208,7 +213,7 @@ fetch('https://script.google.com/macros/s/AKfycbwNmu6whvAFbCk0qo8DulA3Bgm_siBOMj
       const col = document.createElement('div');
       col.className = 'col-md-6 col-lg-4';
       col.innerHTML = `
-        <div class="review-card card h-100 shadow-sm ">
+        <div class="review-card card h-100 shadow-sm">
           <div class="card-body">
             <div class="fw-bold mb-1">${r.Имя}</div>
             <div class="text-muted small mb-2">${r.Дата || ''}</div>
