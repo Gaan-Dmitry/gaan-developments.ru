@@ -294,3 +294,60 @@ button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-
   -webkit-box-orient: vertical;
   min-height: 65px;
 }
+.messengers-block {
+    border-top: 1px solid #e9ecef;
+    padding-top: 1.5rem;
+}
+
+.messenger-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.messenger-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-decoration: none;
+}
+
+.messenger-link img {
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.messenger-link:hover img {
+    transform: scale(1.1);
+}
+
+/* Цветовые акценты при наведении */
+.messenger-link.yandex:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.messenger-link.telegram:hover {
+    background-color: rgba(0, 136, 204, 0.1);
+}
+
+.messenger-link.whatsapp:hover {
+    background-color: rgba(37, 211, 102, 0.1);
+}
+
+/* Для мобильных устройств */
+@media (max-width: 576px) {
+    .messenger-link {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .messenger-link img {
+        width: 35px;
+        height: 35px;
+    }
+}
