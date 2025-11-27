@@ -9,13 +9,13 @@ let currentStep = 0;
 // --- Показ шагов ---
 function showStep(index) {
   steps.forEach((step,i)=>step.classList.toggle('active', i===index));
-  progressBar.style.width = `${((index+1)/steps.length)*100}%`;
-  stepLabel.textContent = `Шаг ${index+1} из ${steps.length}`;
-  
-  // Обновляем активную вкладку в прогресс-баре
-  document.querySelectorAll('.step-indicator').forEach((indicator, i) => {
-    indicator.classList.toggle('active', i <= index);
-    indicator.classList.toggle('completed', i < index);
+  // Прогресс
+  const progress = ((index)/(steps.length-1))*100;
+  document.getElementById('formProgress').style.width = progress+"%";
+  // Step-индикаторы
+  document.querySelectorAll('.custom-step-indicator').forEach((indicator,i)=>{
+    indicator.classList.toggle('active', i===index);
+    indicator.classList.toggle('completed', i<index);
   });
 }
 showStep(currentStep);

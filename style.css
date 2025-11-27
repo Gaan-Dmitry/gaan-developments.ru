@@ -108,3 +108,81 @@ button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-
   border-color: #0d6efd;
   color: white;
 }
+
+/* --- ПРОГРЕСС-БАР МУЛЬТИШАГА NEW --- */
+.progress-steps {
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto 32px auto;
+}
+.custom-progress-bar {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background: #e9ecef;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.custom-progress-bar-inner {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #69061f, #ff1361 95%);
+  border-radius: 6px;
+  transition: width 0.5s cubic-bezier(.4,1,.4,1);
+}
+.step-labels {
+  margin-top: 12px;
+  gap: 0;
+}
+.custom-step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 0;
+  font-size: 13px;
+  color: #888;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+.custom-step-indicator::before {
+  content: attr(data-step);
+  width: 34px; height: 34px;
+  line-height: 34px;
+  background: #fff;
+  border: 2px solid #ddd;
+  color: #ad0057;
+  border-radius: 50%;
+  display: flex;
+  align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 3px;
+  box-shadow: 0 0 4px rgba(150,0,50,0.02);
+  transition: border-color 0.3s, background 0.3s, color 0.3s;
+}
+.custom-step-indicator.active::before {
+  background: linear-gradient(90deg,#ff1361,#69061f 78%); color: #fff;
+  border-color: #69061f;
+}
+.custom-step-indicator.completed::before {
+  background:#28a745; color: #fff; border-color: #28a745;
+}
+.custom-step-indicator span {
+  margin-top: 2px;
+  font-size: 12px;
+  color: #888;
+  font-weight: 500;
+}
+.custom-step-indicator.active span {
+  color: #69061f;
+}
+.custom-step-indicator.completed span {
+  color: #28a745;
+}
+@media (max-width: 600px) {
+  .custom-step-indicator span {font-size: 10px}
+  .custom-step-indicator::before {width:27px; height:27px; font-size:13px;}
+}

@@ -153,35 +153,17 @@
 
     <div class="card shadow-sm p-4 mb-4">
       <form id="orderForm" novalidate>
-        <!-- Прогресс -->
-        <div class="mb-3">
-          <div class="progress" aria-hidden="true">
-            <div id="formProgress" class="progress-bar" role="progressbar" style="width:20%"></div>
+        <!-- Прогресс и шаги -->
+        <div class="progress-steps mb-4">
+          <div class="custom-progress-bar">
+            <div id="formProgress" class="custom-progress-bar-inner"></div>
           </div>
-          <div class="small text-muted mt-2" id="formStepLabel">Шаг 1 из 5</div>
-        </div>
-
-        <!-- Индикаторы шагов -->
-        <div class="d-flex justify-content-between mb-4">
-          <div class="step-indicator text-center">
-            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-1" style="width:30px;height:30px;">1</div>
-            <small>Тип сайта</small>
-          </div>
-          <div class="step-indicator text-center">
-            <div class="rounded-circle bg-light border d-flex align-items-center justify-content-center mx-auto mb-1" style="width:30px;height:30px;">2</div>
-            <small>Дизайн</small>
-          </div>
-          <div class="step-indicator text-center">
-            <div class="rounded-circle bg-light border d-flex align-items-center justify-content-center mx-auto mb-1" style="width:30px;height:30px;">3</div>
-            <small>Контент</small>
-          </div>
-          <div class="step-indicator text-center">
-            <div class="rounded-circle bg-light border d-flex align-items-center justify-content-center mx-auto mb-1" style="width:30px;height:30px;">4</div>
-            <small>Бюджет</small>
-          </div>
-          <div class="step-indicator text-center">
-            <div class="rounded-circle bg-light border d-flex align-items-center justify-content-center mx-auto mb-1" style="width:30px;height:30px;">5</div>
-            <small>Контакты</small>
+          <div class="step-labels d-flex justify-content-between mt-2">
+            <div class="custom-step-indicator" data-step="1">1 <span>Тип сайта</span></div>
+            <div class="custom-step-indicator" data-step="2">2 <span>Дизайн</span></div>
+            <div class="custom-step-indicator" data-step="3">3 <span>Контент</span></div>
+            <div class="custom-step-indicator" data-step="4">4 <span>Бюджет</span></div>
+            <div class="custom-step-indicator" data-step="5">5 <span>Контакты</span></div>
           </div>
         </div>
 
@@ -195,7 +177,7 @@
             <option value="corporate">Корпоративный сайт</option>
             <option value="blog">Блог</option>
             <option value="portfolio">Портфолио</option>
-            <option value="saas">SaaS / Веб-сервис</option>
+            <option value="saas">Веб-инструмент</option>
             <option value="edu">Обучающая платформа</option>
             <option value="other">Другое</option>
           </select>
