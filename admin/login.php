@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <label>Пароль<input class="input" type="password" name="password" required></label>
       <button type="submit">Войти</button>
     </form>
-    <p class="small">По умолчанию пользователь <strong>admin</strong> / пароль <strong>changeme</strong> (рекомендуется сменить).</p>
   </div>
 </body>
 </html>
