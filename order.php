@@ -103,7 +103,7 @@
       "name": "Сколько стоит сайт?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Стоимость зависит от типа сайта и объема работ. Лендинги начинаются от 30 000 ₽, интернет-магазины — от 60 000 ₽."
+        "text": "Стоимость зависит от типа сайта и объема работ. Лендинги начинаются от 15 000 ₽, интернет-магазины — от 70 000 ₽."
       }
     },
     {
@@ -159,11 +159,11 @@
             <div id="formProgress" class="custom-progress-bar-inner"></div>
           </div>
           <div class="step-labels d-flex justify-content-between mt-2">
-            <div class="custom-step-indicator" data-step="1">1 <span>Тип сайта</span></div>
-            <div class="custom-step-indicator" data-step="2">2 <span>Дизайн</span></div>
-            <div class="custom-step-indicator" data-step="3">3 <span>Контент</span></div>
-            <div class="custom-step-indicator" data-step="4">4 <span>Бюджет</span></div>
-            <div class="custom-step-indicator" data-step="5">5 <span>Контакты</span></div>
+            <div class="custom-step-indicator" data-step="1"> <span>Тип сайта</span></div>
+            <div class="custom-step-indicator" data-step="2"> <span>Дизайн</span></div>
+            <div class="custom-step-indicator" data-step="3"> <span>Контент</span></div>
+            <div class="custom-step-indicator" data-step="4"> <span>Бюджет</span></div>
+            <div class="custom-step-indicator" data-step="5"> <span>Контакты</span></div>
           </div>
         </div>
 
@@ -286,6 +286,7 @@
             <p id="successMessage" class="fs-5 fw-semibold mb-4"></p>
             <div class="p-3 border rounded bg-light">
               <p class="mb-1 text-dark">Вы будете перенаправлены на <a href="/" class="fw-semibold">главную страницу</a>.</p>
+              <p class="mb-1 text-dark">С вами свяжутся в течении 3 рабочих дней.</p>
               <p class="mb-0 fs-4 fw-bold text-danger">Через <span id="redirectTimer">10</span> секунд</p>
             </div>
           </div>

@@ -9,7 +9,7 @@
       </h2>
       <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-          Стоимость зависит от типа сайта: лендинг от 30 000 ₽, интернет-магазин от 60 000 ₽.
+          Стоимость зависит от типа сайта: лендинг от 15 000 ₽, интернет-магазин от 70 000 ₽.
         </div>
       </div>
     </div>
