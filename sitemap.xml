@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Главная страница -->
   <url>
     <loc>https://gaan-developments.ru/</loc>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Заказ сайта -->
+  <url>
+    <loc>https://gaan-developments.ru/services.php</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gaan-developments.ru/faq.php</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gaan-developments.ru/review.php</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
     <loc>https://gaan-developments.ru/order.php</loc>
-    <lastmod>2025-10-01</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Политика конфиденциальности -->
   <url>
     <loc>https://gaan-developments.ru/privacy.php</loc>
-    <lastmod>2025-10-01</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
-
-
+  <!-- Добавьте другие важные страницы при необходимости -->
 </urlset>

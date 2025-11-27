@@ -57,6 +57,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 <button id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-3 rounded-circle" aria-label="Наверх" title="Подняться наверх" style="width:48px;height:48px;display:none;"> ↑ </button>
+<style>
+  @media (max-width: 700px) {
+    #scrollTopBtn { display: none !important; }
+  }
+</style>
 
   <!-- JS для кнопки -->
   <script>
