@@ -63,7 +63,7 @@ if (file_exists($reviews_cache) && time() - filemtime($reviews_cache) < 3600) {
 
   <!-- Favicon & CSS -->
   <link rel="icon" href="/uploads/logo-60x56.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/css/style.min.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
   <!-- Schema.org microdata -->
