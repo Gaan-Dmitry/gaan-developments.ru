@@ -114,13 +114,43 @@ if (file_exists($reviews_cache) && time() - filemtime($reviews_cache) < 3600) {
   <!-- О компании -->
   <section class="card shadow-sm p-4 mb-4" id="about">
     <div class="card-body text-center">
-      <h1 class="mb-3" itemprop="name">Веб-студия Gaan Developments</h1>
-      <p class="card-text" itemprop="description">
-        Мы создаём сайты, которые не только красивы, но и приносят результат. 
-        В нашей работе мы совмещаем современный дизайн, удобство для пользователей и техническую надёжность.
-      </p>
+        <h1 class="mb-3" itemprop="name">Веб-студия Gaan Developments</h1>
+        <p class="card-text mb-4" itemprop="description">
+            Мы создаём сайты, которые не только красивы, но и приносят результат. 
+            В нашей работе мы совмещаем современный дизайн, удобство для пользователей и техническую надёжность.
+        </p>
+        
+        <!-- Блок мессенджеров -->
+        <div class="messengers-block mt-4">
+            <p class="small text-muted mb-3">Свяжитесь с нами удобным способом:</p>
+            <div class="d-flex justify-content-center gap-3">
+                <!-- Яндекс.Мессенджер -->
+                <a href="https://yandex.ru/chat/p/3f4bd207-e719-9229-790c-bfddcd7d9391?utm_source=invite" 
+                   target="_blank" 
+                   class="messenger-link yandex" 
+                   title="Написать в Яндекс.Мессенджер">
+                    <img src="/uploads/iconYM.ico" alt="Яндекс.Мессенджер" width="40" height="40">
+                </a>
+                
+                <!-- Telegram -->
+                <a href="https://t.me/Gaan_Dmitry" 
+                   target="_blank" 
+                   class="messenger-link telegram" 
+                   title="Написать в Telegram">
+                    <img src="/uploads/iconTG.ico" alt="Telegram" width="40" height="40">
+                </a>
+                
+                <!-- WhatsApp -->
+                <a href="https://wa.me/message/7K5LTSIPRFUNK1" 
+                   target="_blank" 
+                   class="messenger-link whatsapp" 
+                   title="Написать в WhatsApp">
+                    <img src="/uploads/iconWA.png" alt="WhatsApp" width="40" height="40">
+                </a>
+            </div>
+        </div>
     </div>
-  </section>
+</section>
 
   <section class="card shadow-sm p-4 mb-4" id="services">
   <h2 class="mb-4 text-center">Наши услуги</h2>
