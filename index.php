@@ -206,33 +206,32 @@ require 'config.php';
     </div>
   </div>
   <div class="row g-4" id="portfolio-grid">
-    <div class="col-md-4 portfolio-item" data-category="landing">
-      <div class="card h-100">
-        <img src="https://placehold.co/300x200/e6f3ff/000?text=Лендинг+1" alt="Пример лендинга" class="card-img-top" loading="lazy">
+    <?php
+      $works = [];
+      $sql = 'SELECT * FROM works ORDER BY id DESC';
+      if ($st = $conn->prepare($sql)) {
+        $st->execute();
+        $res = $st->get_result();
+        while ($r = $res->fetch_assoc()) $works[] = $r;
+        $st->close();
+      }
+      if (count($works)===0): ?>
+        <div class="col-12 text-center text-muted">Портфолио пока пусто</div>
+      <?php else:
+        foreach ($works as $w):
+          $cat = strtolower(preg_replace('/[^\w]+/','', $w['category']));
+    ?>
+    <div class="col-md-4 portfolio-item" data-category="<?= htmlspecialchars($cat) ?>">
+      <div class="card h-100 portfolio-card">
+        <div class="card-img-wrapper"><img src="/uploads/<?= htmlspecialchars($w['image']) ?>" alt="<?= htmlspecialchars($w['title']) ?>" class="card-img-top" loading="lazy"></div>
         <div class="card-body">
-          <h5 class="card-title">Продажи+ Лендинг</h5>
-          <p class="card-text small">Одностраничный сайт для привлечения клиентов</p>
+          <div class="small text-muted mb-1">Категория: <?= htmlspecialchars($w['category']) ?></div>
+          <h5 class="card-title"><?= htmlspecialchars($w['title']) ?></h5>
+          <p class="card-text small"><?= nl2br(htmlspecialchars($w['description'])) ?></p>
         </div>
       </div>
     </div>
-    <div class="col-md-4 portfolio-item" data-category="shop">
-      <div class="card h-100">
-        <img src="https://placehold.co/300x200/f0e6ff/000?text=Интернет-магазин" class="card-img-top" alt="Пример интернет-магазина" loading="lazy">
-        <div class="card-body">
-          <h5 class="card-title">Магазин Техники</h5>
-          <p class="card-text small">Интернет-магазин электроники с корзиной</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 portfolio-item" data-category="corporate">
-      <div class="card h-100">
-        <img src="https://placehold.co/300x200/e6ffe6/000?text=Корпоративный" class="card-img-top" alt="Пример корпоративного сайта" loading="lazy">
-        <div class="card-body">
-          <h5 class="card-title">Корпоративный сайт</h5>
-          <p class="card-text small">Официальный сайт компании с CRM интеграцией</p>
-        </div>
-      </div>
-    </div>
+    <?php endforeach; endif; ?>
   </div>
 </section>
 
