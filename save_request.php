@@ -1,14 +1,11 @@
 <?php
-// save_request.php
-// Временно добавьте в начало save_request.php
-error_log("Telegram send attempt: " . date('Y-m-d H:i:s'));
+// Включаем буферизацию вывода в самом начале
+ob_start();
 
-// И в функцию sendTelegramNotification добавьте:
-error_log("Telegram data: " . print_r($data, true));
-error_log("Telegram result: " . $result);
+// save_request.php
 header('Content-Type: application/json');
 
-// Отключаем вывод ошибок на экран (для продакшена)
+// Отключаем вывод ошибок на экран
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
@@ -129,6 +126,9 @@ function sendTelegramNotification($requestId, $name, $email, $phone, $siteType, 
     return $result !== false;
 }
 
+// Очищаем буфер на случай, если в нем что-то есть
+ob_clean();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $site_type = $_POST['site_type'] ?? '';
@@ -152,6 +152,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         if (!empty($errors)) {
+            // Очищаем буфер перед отправкой JSON
+            ob_clean();
             http_response_code(400);
             echo json_encode(['success' => false, 'errors' => $errors]);
             exit;
@@ -200,25 +202,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $support
             );
             
+            // Очищаем буфер перед отправкой JSON
+            ob_clean();
             echo json_encode([
                 'success' => true, 
                 'message' => 'Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.',
                 'request_id' => $unique_id,
                 'telegram_sent' => $telegramSent
             ]);
+            exit;
         } else {
             throw new Exception('Ошибка сохранения в базу данных');
         }
         
     } catch (Exception $e) {
+        // Очищаем буфер перед отправкой JSON
+        ob_clean();
         http_response_code(500);
         echo json_encode([
             'success' => false, 
             'message' => 'Ошибка сервера. Пожалуйста, попробуйте позже.'
         ]);
+        exit;
     }
 } else {
+    // Очищаем буфер перед отправкой JSON
+    ob_clean();
     http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Метод не разрешен']);
+    exit;
 }
+
+// Очищаем буфер в конце на всякий случай
+ob_end_clean();
 ?>
