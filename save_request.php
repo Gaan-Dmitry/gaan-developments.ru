@@ -1,5 +1,11 @@
 <?php
 // save_request.php
+// Временно добавьте в начало save_request.php
+error_log("Telegram send attempt: " . date('Y-m-d H:i:s'));
+
+// И в функцию sendTelegramNotification добавьте:
+error_log("Telegram data: " . print_r($data, true));
+error_log("Telegram result: " . $result);
 header('Content-Type: application/json');
 
 // Отключаем вывод ошибок на экран (для продакшена)
@@ -21,6 +27,106 @@ function getPDO() {
     ];
     
     return new PDO($dsn, $user, $pass, $options);
+}
+
+function sendTelegramNotification($requestId, $name, $email, $phone, $siteType, $budget, $details, $design, $content, $support) {
+    $botToken = '8501378717:AAGhzm-krzKpqBwxG_vB37dQvLkEeD_3cW8';
+    $chatId = '6297103998';
+    
+    $siteTypeNames = [
+        'landing' => '📰 Лендинг',
+        'shop' => '🛍 Интернет-магазин', 
+        'blog' => '📝 Блог',
+        'forum' => '💬 Форум',
+        'corporate' => '🏠 Корпоративный сайт',
+        'tool' => '🛠 Веб-инструмент',
+        'portfolio' => '🎨 Портфолио',
+        'learning' => '🎓 Обучающая платформа',
+        'other' => 'Другое'
+    ];
+    
+    $budgetNames = [
+        'under_30' => 'До 30 000 ₽',
+        '30_60' => '30 000 — 60 000 ₽',
+        '60_100' => '60 000 — 100 000 ₽', 
+        '100_plus' => '100 000 ₽ и выше'
+    ];
+    
+    $designNames = [
+        'ready' => '✅ Готовый дизайн',
+        'need' => '🎨 Нужен дизайн'
+    ];
+    
+    $contentNames = [
+        'provide' => '✅ Я предоставляю',
+        'create' => '📝 Нужна помощь'
+    ];
+    
+    $supportNames = [
+        'no' => '❌ Нет',
+        'maintenance' => '🔧 Техподдержка',
+        'seo' => '📈 Маркетинг / SEO',
+        'both' => '🚀 Поддержка + Маркетинг'
+    ];
+    
+    $siteTypeName = $siteTypeNames[$siteType] ?? $siteType;
+    $budgetName = $budgetNames[$budget] ?? $budget;
+    $designName = $designNames[$design] ?? $design;
+    $contentName = $contentNames[$content] ?? $content;
+    $supportName = $supportNames[$support] ?? $support;
+    
+    // Экранирование специальных символов для MarkdownV2
+    function escapeMarkdown($text) {
+        if (!$text) return '';
+        $escapeChars = ['_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!'];
+        $result = '';
+        foreach (str_split($text) as $char) {
+            $result .= in_array($char, $escapeChars) ? "\\$char" : $char;
+        }
+        return $result;
+    }
+    
+    $message = "🌐 *Новая заявка с сайта*\n\n"
+             . "🆔 *ID:* `" . $requestId . "`\n"
+             . "👤 *Имя:* " . escapeMarkdown($name) . "\n"
+             . "📧 *Email:* " . escapeMarkdown($email) . "\n";
+    
+    if (!empty($phone)) {
+        $message .= "📞 *Телефон:* " . escapeMarkdown($phone) . "\n";
+    }
+    
+    $message .= "🌍 *Тип сайта:* " . escapeMarkdown($siteTypeName) . "\n"
+              . "💰 *Бюджет:* " . escapeMarkdown($budgetName) . "\n"
+              . "🎨 *Дизайн:* " . escapeMarkdown($designName) . "\n"
+              . "📄 *Контент:* " . escapeMarkdown($contentName) . "\n"
+              . "🔧 *Поддержка:* " . escapeMarkdown($supportName) . "\n";
+    
+    if (!empty($details)) {
+        $message .= "📝 *Описание:* " . escapeMarkdown($details) . "\n";
+    }
+    
+    $message .= "\n[📊 Посмотреть в админке](https://gaan-developments.ru/admin)";
+    
+    $url = "https://api.telegram.org/bot{$botToken}/sendMessage";
+    
+    $data = [
+        'chat_id' => $chatId,
+        'text' => $message,
+        'parse_mode' => 'MarkdownV2'
+    ];
+    
+    $options = [
+        'http' => [
+            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
+            'content' => http_build_query($data)
+        ]
+    ];
+    
+    $context = stream_context_create($options);
+    $result = @file_get_contents($url, false, $context);
+    
+    return $result !== false;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -80,11 +186,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
         
         if ($result) {
-            // Успешное сохранение
+            // Отправляем уведомление в Telegram
+            $telegramSent = sendTelegramNotification(
+                $unique_id, 
+                $name, 
+                $email, 
+                $phone, 
+                $site_type, 
+                $budget, 
+                $details,
+                $design,
+                $content,
+                $support
+            );
+            
             echo json_encode([
                 'success' => true, 
                 'message' => 'Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.',
-                'request_id' => $unique_id
+                'request_id' => $unique_id,
+                'telegram_sent' => $telegramSent
             ]);
         } else {
             throw new Exception('Ошибка сохранения в базу данных');
