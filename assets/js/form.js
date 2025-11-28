@@ -99,7 +99,14 @@ btnSubmit.addEventListener('click', async()=>{
       const successMessageEl = document.getElementById('successMessage');
       const redirectTimerEl = document.getElementById('redirectTimer');
 
-      successMessageEl.textContent = data.message || 'Заявка успешно отправлена';
+      let message = data.message || 'Заявка успешно отправлена';
+      
+      // Добавляем информацию о Telegram уведомлении
+      if (data.telegram_sent === false) {
+        message += ' (Уведомление в Telegram не отправлено)';
+      }
+      
+      successMessageEl.textContent = message;
 
       // Сбрасываем таймер
       let countdown = 10;
