@@ -78,8 +78,19 @@ btnSubmit.addEventListener('click', async()=>{
   btnSubmit.disabled = true;
   
   try {
-    const res = await fetch('/save_request.php',{method:'POST', body:formData});
+    const res = await fetch('/save_request.php', {
+      method: 'POST', 
+      body: formData
+    });
+    
+    // Проверяем Content-Type ответа
+    const contentType = res.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      throw new Error('Сервер вернул не JSON ответ');
+    }
+    
     const data = await res.json();
+    
     if (!res.ok) {
       if (data.errors) {
         for (let field in data.errors) {
@@ -90,7 +101,7 @@ btnSubmit.addEventListener('click', async()=>{
           }
         }
       } else {
-        result.className='text-danger';
+        result.className = 'alert alert-danger';
         result.textContent = data.message || 'Ошибка сервера';
       }
     } else {
@@ -99,14 +110,7 @@ btnSubmit.addEventListener('click', async()=>{
       const successMessageEl = document.getElementById('successMessage');
       const redirectTimerEl = document.getElementById('redirectTimer');
 
-      let message = data.message || 'Заявка успешно отправлена';
-      
-      // Добавляем информацию о Telegram уведомлении
-      if (data.telegram_sent === false) {
-        message += ' (Уведомление в Telegram не отправлено)';
-      }
-      
-      successMessageEl.textContent = message;
+      successMessageEl.textContent = data.message || 'Заявка успешно отправлена';
 
       // Сбрасываем таймер
       let countdown = 10;
@@ -122,7 +126,7 @@ btnSubmit.addEventListener('click', async()=>{
         redirectTimerEl.textContent = countdown;
         if (countdown <= 0) {
           clearInterval(timerInterval);
-          window.location.href = '/'; // перенаправление на главную
+          window.location.href = '/';
         }
       },1000);
 
@@ -130,12 +134,14 @@ btnSubmit.addEventListener('click', async()=>{
       form.reset();
       currentStep = 0;
       showStep(currentStep);
-
     }
   } catch(e) {
-    result.className='text-danger';
-    result.textContent='Ошибка соединения';
-    console.error(e);
+    console.error('Ошибка:', e);
+    result.className = 'alert alert-danger';
+    result.innerHTML = `
+      <strong>Ошибка соединения</strong><br>
+      <small>Пожалуйста, попробуйте еще раз или свяжитесь с нами по телефону.</small>
+    `;
   } finally {
     // Восстанавливаем кнопку
     btnSubmit.innerHTML = 'Отправить заявку';
