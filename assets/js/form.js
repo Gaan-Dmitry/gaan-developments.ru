@@ -114,9 +114,9 @@ btnSubmit.addEventListener('click', async()=>{
       
       // Добавляем информацию о Telegram уведомлении
       if (data.telegram_sent === false) {
-        message += '\n(Уведомление в Telegram не отправлено)';
+        message += '\n(+)';
       } else if (data.telegram_sent === true) {
-        message += '\n✓ Уведомление отправлено в Telegram';
+        message += '\n✓ -';
       }
       
       successMessageEl.textContent = message;
