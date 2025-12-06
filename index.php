@@ -118,7 +118,7 @@ if (file_exists($reviews_cache) && time() - filemtime($reviews_cache) < 3600) {
   <!-- О компании -->
   <section class="card shadow-sm p-4 mb-4" id="about">
     <div class="card-body text-center">
-        <h1 class="mb-3" itemprop="name">Веб-разработчик Дмитрий Гаан (Gaan Developments)</h1>
+        <h1 class="mb-3" itemprop="name">Веб-разработка Gaan Developments</h1>
         <p class="card-text mb-4" itemprop="description">
             Я создаю сайты, которые не только красивы, но и приносят результат. 
             В своей работе совмещаю современный дизайн, удобство для пользователей и техническую надёжность.

@@ -77,7 +77,7 @@ require 'config.php';
     <div class="card-body text-center">
       <h1 class="mb-3" itemprop="name">Наши услуги</h1>
       <p class="card-text" itemprop="description">
-        Мы предлагаем полный спектр услуг по созданию и продвижению веб-сайтов, 
+        Я предлагаю полный спектр услуг по созданию и продвижению веб-сайтов, 
         адаптированных под задачи вашего бизнеса и цели развития.
       </p>
     </div>
@@ -185,7 +185,7 @@ require 'config.php';
 
   <section class="card shadow-sm p-4 mb-4 text-center d-flex align-items-center">
     <h2>Готовы начать проект?</h2>
-    <p>Оставьте заявку — мы свяжемся с вами в течение дня и обсудим детали.</p>
+    <p>Оставьте заявку — я свяжусь с вами в течение дня и обсудим детали.</p>
     <a href="order.php" class="btn btn-lg btn-primary w-75 text-center">Заказать сайт</a>
   </section>
 

@@ -10,8 +10,7 @@
         
         <div class="d-flex flex-column text-center text-md-start">
           <span class="h5 mb-0">
-            <span itemprop="name">Дмитрий Гаан</span>
-            <span class="text-muted"> (Gaan Developments)</span>
+            <span itemprop="name">Gaan Developments</span>
           </span>
           <!-- Слоган скрывается на мобильном -->
           <span class="tagline small text-muted text-wrap d-none d-md-block" itemprop="jobTitle">
@@ -26,11 +25,6 @@
           <div class="mb-1">
             <a href="https://t.me/Gaan_Developments_bot" class="text-decoration-none" target="_blank" rel="noopener" aria-label="Telegram-бот для заявок">
               <span class="badge bg-primary">🤖 Telegram-бот для заявок</span>
-            </a>
-          </div>
-          <div>
-            <a href="mailto:gaandima55@yandex.ru" class="text-muted small text-decoration-none" itemprop="email">
-              gaandima55@yandex.ru
             </a>
           </div>
         </div>

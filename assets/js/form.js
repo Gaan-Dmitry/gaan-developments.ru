@@ -149,7 +149,7 @@ btnSubmit.addEventListener('click', async()=>{
     result.className = 'alert alert-danger';
     result.innerHTML = `
       <strong>Ошибка соединения</strong><br>
-      <small>Пожалуйста, попробуйте еще раз или свяжитесь с нами по телефону.</small>
+      <small>Пожалуйста, попробуйте еще раз или свяжитесь с нами в Telegram.</small>
     `;
   } finally {
     // Восстанавливаем кнопку

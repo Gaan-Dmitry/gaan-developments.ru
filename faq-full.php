@@ -199,7 +199,7 @@ require 'config.php';
               <li><strong>Цели и задачи</strong> — зачем вам нужен сайт и чего вы хотите достичь</li>
               <li><strong>Контактную информацию</strong> — email, адрес, соцсети</li>
             </ul>
-            <p>Если чего-то нет, мы можем помочь с подготовкой контента за дополнительную плату.</p>
+            <p>Если чего-то нет, я могу помочь с подготовкой контента за дополнительную плату.</p>
           </div>
         </div>
       </div>
@@ -211,7 +211,7 @@ require 'config.php';
         </h2>
         <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
           <div class="accordion-body">
-            <p>Мы используем прозрачный процесс работы:</p>
+            <p>Я использую прозрачный процесс работы:</p>
             <ul>
               <li><strong>Еженедельные отчеты</strong> — о проделанной работе и следующих шагах</li>
               <li><strong>Доступ к промежуточной версии</strong> — вы видите прогресс в реальном времени</li>
@@ -219,7 +219,7 @@ require 'config.php';
               <li><strong>Трекер задач</strong> — вы можете видеть статус выполнения этапов</li>
               <li><strong>Тестирование</strong> — вы участвуете в проверке функционала</li>
             </ul>
-            <p>Мы используем современные инструменты управления проектами для максимальной прозрачности.</p>
+            <p>Я использую современные инструменты управления проектами для максимальной прозрачности.</p>
           </div>
         </div>
       </div>
@@ -231,7 +231,7 @@ require 'config.php';
         </h2>
         <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
           <div class="accordion-body">
-            <p>Да, мы предоставляем <strong>постпроектную поддержку</strong>:</p>
+            <p>Да, я предоставляю <strong>постпроектную поддержку</strong>:</p>
             <ul>
               <li><strong>Техническая поддержка</strong> — устранение неполадок, обновления</li>
               <li><strong>Контент-поддержка</strong> — обновление текстов, изображений, цен</li>
@@ -239,7 +239,7 @@ require 'config.php';
               <li><strong>Маркетинговая поддержка</strong> — настройка рекламы, аналитики</li>
               <li><strong>Развитие функционала</strong> — добавление новых возможностей</li>
             </ul>
-            <p>Мы предлагаем гибкие тарифы поддержки — от базовых до комплексных решений.</p>
+            <p>Я предлагаю гибкие тарифы поддержки — от базовых до комплексных решений.</p>
           </div>
         </div>
       </div>
@@ -251,7 +251,7 @@ require 'config.php';
         </h2>
         <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#faqAccordion">
           <div class="accordion-body">
-            <p>Конечно! Мы закладываем <strong>гибкость в архитектуре</strong> сайта, чтобы вы могли:</p>
+            <p>Конечно! Я закладываю <strong>гибкость в архитектуре</strong> сайта, чтобы вы могли:</p>
             <ul>
               <li>Добавлять и редактировать страницы</li>
               <li>Обновлять контент и изображения</li>
@@ -259,7 +259,7 @@ require 'config.php';
               <li>Добавлять новые разделы и функции</li>
               <li>Интегрировать с CRM и другими системами</li>
             </ul>
-            <p>Мы также предоставляем обучение по управлению сайтом и готовы помочь с любыми изменениями.</p>
+            <p>Я также предоставляею обучение по управлению сайтом и готов помочь с любыми изменениями.</p>
           </div>
         </div>
       </div>
@@ -268,7 +268,7 @@ require 'config.php';
 
   <section class="card shadow-sm p-4 mb-4 text-center d-flex align-items-center">
     <h2>Остались вопросы?</h2>
-    <p>Напишите нам в Telegram-бот — мы подробно ответим на все интересующие вас вопросы и предложим оптимальное решение для вашего бизнеса.</p>
+    <p>Напишите нам в Telegram-бот — я подробно отвечу на все интересующие вас вопросы и предложу оптимальное решение для вашего бизнеса.</p>
     <a href="https://t.me/Gaan_Developments_bot" class="btn btn-lg btn-primary w-75 text-center" target="_blank" rel="noopener">Задать вопрос в Telegram-боте</a>
     <p class="mt-3 text-muted">Или напишите на email: <a href="mailto:gaandima55@yandex.ru">gaandima55@yandex.ru</a></p>
   </section>

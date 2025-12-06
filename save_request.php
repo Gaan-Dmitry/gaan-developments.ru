@@ -206,7 +206,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ob_clean();
             echo json_encode([
                 'success' => true, 
-                'message' => 'Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.',
+                'message' => 'Заявка успешно отправлена!',
                 'request_id' => $unique_id,
                 'telegram_sent' => $telegramSent
             ]);

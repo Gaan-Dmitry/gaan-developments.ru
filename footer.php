@@ -3,7 +3,7 @@
     <!-- Контакты -->
     <div class="row">
       <div class="col-md-6 mb-2 mb-md-0">
-        <p class="mb-1">&copy; <?= date('Y') ?> <span itemprop="brand">Gaan Developments</span> (самозанятый Дмитрий Гаан). Все права защищены.</p>
+        <p class="mb-1">&copy; <?= date('Y') ?> <span itemprop="brand">Gaan Developments</span>. Все права защищены.</p>
         
         <!-- Микроразметка -->
         <meta itemprop="name" content="Дмитрий Гаан">
@@ -17,13 +17,6 @@
           <meta itemprop="availableLanguage" content="Russian">
           <a href="mailto:gaandima55@yandex.ru" itemprop="email">gaandima55@yandex.ru</a> | <br class="d-b d-md-none">
           <a href="https://t.me/Gaan_Developments_bot" itemprop="url" target="_blank">Telegram-бот для заявок</a>
-        </div>
-        
-        <!-- Дополнительные контакты -->
-        <div class="mt-2">
-          <small class="text-muted">
-            Telegram-канал: <a href="https://t.me/gaan_developments" target="_blank" rel="noopener">@gaan_developments</a>
-          </small>
         </div>
       </div>
       <div class="col-md-6 d-flex align-items-center flex-row-reverse">
