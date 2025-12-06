@@ -1,13 +1,16 @@
 User-agent: *
+Allow: /
+Аllow: /faq.php
+Аllow: /order.php
+Аllow: /services.php.php
+Аllow: /services.php.php
+
 Disallow: /admin/
 Disallow: /assets/
 Disallow: /config.php
 Disallow: /private/
 Disallow: /privacy.php
-Disallow: /portfolio.php
-Disallow: /faq.php
 Disallow: /403.php
 Disallow: /404.php
-Allow: /
 
 Sitemap: https://gaan-developments.ru/sitemap.xml
