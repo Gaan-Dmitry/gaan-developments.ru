@@ -41,20 +41,20 @@ if (file_exists($reviews_cache) && time() - filemtime($reviews_cache) < 3600) {
 
   <!-- SEO -->
   <title>Gaan Developments — разработка сайтов и интернет-магазинов</title>
-  <meta name="description" content="Gaan Developments создаёт современные сайты, лендинги и интернет-магазины, помогая бизнесу привлекать клиентов и увеличивать продажи.">
-  <meta name="keywords" content="разработка сайтов, лендинги, интернет-магазины, создание сайта, заказать сайт, веб-студия, UX/UI дизайн">
-  <meta name="author" content="Gaan Developments">
+  <meta name="description" content="Разработка современных сайтов, лендингов и интернет-магазинов. Самозанятый специалист с индивидуальным подходом.">
+  <meta name="keywords" content="разработка сайтов, лендинги, интернет-магазины, создание сайта, заказать сайт, веб-разработчик, самозанятый">
+  <meta name="author" content="Дмитрий Гаан">
   <link rel="canonical" href="https://gaan-developments.ru/">
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Gaan Developments — разработка сайтов и интернет-магазинов">
-  <meta name="twitter:description" content="Создаём сайты, которые приносят результат. Услуги, поддержка и оптимизация.">
+  <meta name="twitter:description" content="Создаю сайты, которые приносят результат. Услуги, поддержка и оптимизация.">
   <meta name="twitter:image" content="https://gaan-developments.ru/uploads/gaan-developments.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Gaan Developments — разработка сайтов и интернет-магазинов">
-  <meta property="og:description" content="Создаём сайты, которые приносят результат. Услуги, поддержка и оптимизация.">
+  <meta property="og:description" content="Создаю сайты, которые приносят результат. Услуги, поддержка и оптимизация.">
   <meta property="og:image" content="https://gaan-developments.ru/uploads/gaan-developments.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gaan-developments.ru/">
@@ -67,37 +67,41 @@ if (file_exists($reviews_cache) && time() - filemtime($reviews_cache) < 3600) {
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
   <!-- Schema.org microdata -->
-  <meta itemprop="name" content="Gaan Developments">
+  <meta itemprop="name" content="Дмитрий Гаан">
+  <meta itemprop="brand" content="Gaan Developments">
+  <meta itemprop="jobTitle" content="Самозанятый веб-разработчик">
   <meta itemprop="url" content="https://gaan-developments.ru/">
-  <meta itemprop="logo" content="https://gaan-developments.ru/uploads/logo-60x56.svg">
+  <meta itemprop="image" content="https://gaan-developments.ru/uploads/logo-60x56.svg">
 
   <link itemprop="sameAs" href="https://vk.com/Gaan_Dmitry">
-  <link itemprop="sameAs" href="https://t.me/Gaan_Dmitry">
+  <link itemprop="sameAs" href="https://t.me/gaan_developments">
   <link itemprop="sameAs" href="https://github.com/Gaan_Dmitry">
 
   <div itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
     <meta itemprop="contactType" content="customer support">
     <meta itemprop="email" content="gaandima55@yandex.ru">
-    <meta itemprop="telephone" content="+7 904 329-40-61">
+    <meta itemprop="url" content="https://t.me/Gaan_Developments_bot">
   </div>
 
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Gaan Developments",
+  "@type": "Person",
+  "name": "Дмитрий Гаан",
+  "brand": "Gaan Developments",
+  "jobTitle": "Самозанятый веб-разработчик",
   "url": "https://gaan-developments.ru/",
-  "logo": "https://gaan-developments.ru/uploads/logo-60x56.svg",
+  "image": "https://gaan-developments.ru/uploads/logo-60x56.svg",
   "sameAs": [
     "https://vk.com/Gaan_Dmitry",
-    "https://t.me/Gaan_Dmitry",
+    "https://t.me/gaan_developments",
     "https://github.com/Gaan-Dmitry"
   ],
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer support",
     "email": "gaandima55@yandex.ru",
-    "telephone": "+7 904 329-40-61"
+    "url": "https://t.me/Gaan_Developments_bot"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -108,36 +112,39 @@ if (file_exists($reviews_cache) && time() - filemtime($reviews_cache) < 3600) {
 </script>
 </head>
 <body>
-<main class="container" itemscope itemtype="https://schema.org/Organization">
+<main class="container" itemscope itemtype="https://schema.org/Person">
   <?php require_once __DIR__ . '/header.php'; ?>
 
   <!-- О компании -->
   <section class="card shadow-sm p-4 mb-4" id="about">
     <div class="card-body text-center">
-        <h1 class="mb-3" itemprop="name">Веб-студия Gaan Developments</h1>
+        <h1 class="mb-3" itemprop="name">Веб-разработчик Дмитрий Гаан (Gaan Developments)</h1>
         <p class="card-text mb-4" itemprop="description">
-            Мы создаём сайты, которые не только красивы, но и приносят результат. 
-            В нашей работе мы совмещаем современный дизайн, удобство для пользователей и техническую надёжность.
+            Я создаю сайты, которые не только красивы, но и приносят результат. 
+            В своей работе совмещаю современный дизайн, удобство для пользователей и техническую надёжность.
+            Работаю как самозанятый специалист, что позволяет быть максимально гибким и оперативным.
         </p>
         
         <!-- Блок мессенджеров -->
         <div class="messengers-block mt-4">
-            <p class="small text-muted mb-3">Свяжитесь с нами удобным способом:</p>
+            <p class="small text-muted mb-3">Свяжитесь со мной удобным способом:</p>
             <div class="d-flex justify-content-center gap-3">
+                <!-- Telegram-бот -->
+                <a href="https://t.me/Gaan_Developments_bot" 
+                   target="_blank" 
+                   class="messenger-link telegram" 
+                   title="Написать в Telegram-бота для заявок">
+                    <img src="/uploads/iconTG.ico" alt="Telegram-бот" width="40" height="40">
+                    <span class="visually-hidden">Telegram-бот</span>
+                </a>
+                
                 <!-- Яндекс.Мессенджер -->
                 <a href="https://yandex.ru/chat/p/3f4bd207-e719-9229-790c-bfddcd7d9391?utm_source=invite" 
                    target="_blank" 
                    class="messenger-link yandex" 
                    title="Написать в Яндекс.Мессенджер">
                     <img src="/uploads/iconYM.ico" alt="Яндекс.Мессенджер" width="40" height="40">
-                </a>
-                
-                <!-- Telegram -->
-                <a href="https://t.me/Gaan_Dmitry" 
-                   target="_blank" 
-                   class="messenger-link telegram" 
-                   title="Написать в Telegram">
-                    <img src="/uploads/iconTG.ico" alt="Telegram" width="40" height="40">
+                    <span class="visually-hidden">Яндекс.Мессенджер</span>
                 </a>
                 
                 <!-- WhatsApp -->
@@ -146,31 +153,36 @@ if (file_exists($reviews_cache) && time() - filemtime($reviews_cache) < 3600) {
                    class="messenger-link whatsapp" 
                    title="Написать в WhatsApp">
                     <img src="/uploads/iconWA.png" alt="WhatsApp" width="40" height="40">
+                    <span class="visually-hidden">WhatsApp</span>
                 </a>
             </div>
+            <p class="mt-3 small text-muted">
+                Telegram-канал: <a href="https://t.me/gaan_developments" target="_blank">@gaan_developments</a> | 
+                Email: <a href="mailto:gaandima55@yandex.ru">gaandima55@yandex.ru</a>
+            </p>
         </div>
     </div>
 </section>
 
   <section class="card shadow-sm p-4 mb-4" id="services">
-  <h2 class="mb-4 text-center">Наши услуги</h2>
+  <h2 class="mb-4 text-center">Мои услуги</h2>
   <div class="row g-4">
     <div class="col-md-4">
       <div class="p-3 border rounded text-center h-100">
         <h3 class="h5">Лендинги</h3>
-        <p>Быстрые и продающие одностраничные сайты.</p>
+        <p>Быстрые и продающие одностраничные сайты. От 15 000 ₽</p>
       </div>
     </div>
     <div class="col-md-4">
       <div class="p-3 border rounded text-center h-100">
         <h3 class="h5">Интернет-магазины</h3>
-        <p>Функциональные e-commerce проекты с каталогом и оплатой.</p>
+        <p>Функциональные e-commerce проекты с каталогом и оплатой. От 70 000 ₽</p>
       </div>
     </div>
     <div class="col-md-4">
       <div class="p-3 border rounded text-center h-100">
         <h3 class="h5">Корпоративные сайты</h3>
-        <p>Сайты для компаний, которые укрепляют бренд и доверие.</p>
+        <p>Сайты для компаний, которые укрепляют бренд и доверие. От 35 000 ₽</p>
       </div>
     </div>
   </div>
@@ -178,7 +190,7 @@ if (file_exists($reviews_cache) && time() - filemtime($reviews_cache) < 3600) {
 
 <!-- Галерея работ -->
 <section class="card shadow-sm p-4 mb-4" id="portfolio">
-  <h2 class="mb-4 text-center">Наши работы</h2>
+  <h2 class="mb-4 text-center">Мои работы</h2>
   <div class="row mb-3">
     <div class="col-12 text-center">
       <button class="btn btn-outline-primary btn-sm mx-1 active" data-filter="all">Все</button>
@@ -266,8 +278,9 @@ if (file_exists($reviews_cache) && time() - filemtime($reviews_cache) < 3600) {
 
 <section class="card shadow-sm p-4 mb-4 text-center d-flex align-items-center">
   <h2>Готовы обсудить ваш проект?</h2>
-  <p>Оставьте заявку — мы свяжемся с вами в течение дня.</p>
-  <a href="order.php" class="btn btn-lg btn-primary w-75 text-center">Заказать сайт</a>
+  <p>Напишите мне в Telegram-бота для быстрого ответа и консультации.</p>
+  <a href="https://t.me/Gaan_Developments_bot" class="btn btn-lg btn-primary w-75 text-center" target="_blank" rel="noopener">Написать в Telegram-боте</a>
+  <p class="mt-3 text-muted">Или оставьте заявку через форму на странице <a href="order.php">Заказать</a></p>
 </section>
 
   <?php require_once __DIR__ . '/footer.php'; ?>

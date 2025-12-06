@@ -351,3 +351,24 @@ button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-
         height: 35px;
     }
 }
+
+/* Расширяем кликабельную область */
+.form-check {
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+}
+
+/* Вся область становится кликабельной */
+.form-check-label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Hover-эффект для лучшего UX */
+.form-check:hover {
+  background-color: #f8f9fa;
+  border-color: #86b7fe;
+}

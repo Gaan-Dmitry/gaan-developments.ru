@@ -11,7 +11,7 @@ require 'config.php';
   <title>Часто задаваемые вопросы — Gaan Developments</title>
   <meta name="description" content="Ответы на часто задаваемые вопросы о создании сайтов, ценах, сроках и процессе разработки.">
   <meta name="keywords" content="вопросы и ответы, FAQ, создание сайтов, цены, сроки, веб-разработка, Gaan Developments">
-  <meta name="author" content="Gaan Developments">
+  <meta name="author" content="Дмитрий Гаан">
   <link rel="canonical" href="https://gaan-developments.ru/faq.php">
 
   <!-- Open Graph -->
@@ -64,22 +64,24 @@ require 'config.php';
   </script>
 </head>
 <body>
-<main class="container" itemscope itemtype="https://schema.org/Organization">
+<main class="container" itemscope itemtype="https://schema.org/Person">
   <?php require_once __DIR__ . '/header.php'; ?>
 
   <!-- Schema.org microdata -->
-  <meta itemprop="name" content="Gaan Developments">
+  <meta itemprop="name" content="Дмитрий Гаан">
+  <meta itemprop="brand" content="Gaan Developments">
+  <meta itemprop="jobTitle" content="Самозанятый веб-разработчик">
   <meta itemprop="url" content="https://gaan-developments.ru/">
   <meta itemprop="logo" content="https://gaan-developments.ru/uploads/logo-60x56.svg">
 
   <link itemprop="sameAs" href="https://vk.com/Gaan_Dmitry">
-  <link itemprop="sameAs" href="https://t.me/Gaan_Dmitry">
+  <link itemprop="sameAs" href="https://t.me/gaan_developments">
   <link itemprop="sameAs" href="https://github.com/Gaan_Dmitry">
 
   <div itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
     <meta itemprop="contactType" content="customer support">
     <meta itemprop="email" content="gaandima55@yandex.ru">
-    <meta itemprop="telephone" content="+7 904 329-40-61">
+    <meta itemprop="url" content="https://t.me/Gaan_Developments_bot">
   </div>
 
   <section class="card shadow-sm p-4 mb-4">
@@ -195,7 +197,7 @@ require 'config.php';
               <li><strong>Логотип и фирменные цвета</strong> — элементы корпоративного стиля</li>
               <li><strong>Примеры сайтов</strong> — вдохновение и понимание ваших предпочтений</li>
               <li><strong>Цели и задачи</strong> — зачем вам нужен сайт и чего вы хотите достичь</li>
-              <li><strong>Контактную информацию</strong> — телефон, email, адрес, соцсети</li>
+              <li><strong>Контактную информацию</strong> — email, адрес, соцсети</li>
             </ul>
             <p>Если чего-то нет, мы можем помочь с подготовкой контента за дополнительную плату.</p>
           </div>
@@ -266,8 +268,9 @@ require 'config.php';
 
   <section class="card shadow-sm p-4 mb-4 text-center d-flex align-items-center">
     <h2>Остались вопросы?</h2>
-    <p>Напишите нам — мы подробно ответим на все интересующие вас вопросы и предложим оптимальное решение для вашего бизнеса.</p>
-    <a href="order.php" class="btn btn-lg btn-primary w-75 text-center">Задать вопрос</a>
+    <p>Напишите нам в Telegram-бот — мы подробно ответим на все интересующие вас вопросы и предложим оптимальное решение для вашего бизнеса.</p>
+    <a href="https://t.me/Gaan_Developments_bot" class="btn btn-lg btn-primary w-75 text-center" target="_blank" rel="noopener">Задать вопрос в Telegram-боте</a>
+    <p class="mt-3 text-muted">Или напишите на email: <a href="mailto:gaandima55@yandex.ru">gaandima55@yandex.ru</a></p>
   </section>
 
   <?php require_once __DIR__ . '/footer.php'; ?>

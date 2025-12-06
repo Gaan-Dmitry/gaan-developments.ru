@@ -75,7 +75,7 @@ require 'config.php';
   <!-- Заголовок страницы -->
   <section class="card shadow-sm p-4 mb-4" id="services">
     <div class="card-body text-center">
-      <h1 class="card-title mb-3" itemprop="name">Наши услуги</h1>
+      <h1 class="mb-3" itemprop="name">Наши услуги</h1>
       <p class="card-text" itemprop="description">
         Мы предлагаем полный спектр услуг по созданию и продвижению веб-сайтов, 
         адаптированных под задачи вашего бизнеса и цели развития.
