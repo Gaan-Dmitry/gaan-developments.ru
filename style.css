@@ -349,6 +349,11 @@ button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-
     .messenger-link img {
         width: 35px;
         height: 35px;
+        
+    }
+    #orderForm {
+      max-width: 800px;
+      min-width: 1rem;
     }
 }
 
