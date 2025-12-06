@@ -36,12 +36,6 @@ require 'config.php';
   
   <!-- Стили для формы -->
   <style>
-    /* Исправляем ширину формы */
-    #orderForm {
-      max-width: 800px;
-      min-width: 45rem;
-      margin: 0 auto;
-    }
     
     /* Улучшаем радио-кнопки */
     .form-check {

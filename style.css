@@ -356,6 +356,20 @@ button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-
       min-width: 1rem;
     }
 }
+/* Для мобильных устройств */
+@media (max-width: 606px) {
+  #orderForm {
+    max-width: 800px;
+    min-width: 1rem;
+  }
+}
+
+/* Исправляем ширину формы */
+#orderForm {
+  max-width: 800px;
+  min-width: 45rem;
+  margin: 0 auto;
+}
 
 /* Расширяем кликабельную область */
 .form-check {
